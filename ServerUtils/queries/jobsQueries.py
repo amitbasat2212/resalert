@@ -42,3 +42,36 @@ def add_job(open_job):
             return new_open_job;  
     except TypeError as e:
         return e;
+
+
+
+def find_job_by_id(job_id):
+    try:
+        with DataBaseManager.connection.cursor() as cursor:            
+            query_excist_job = f"SELECT * from open_jobs where oj_id='{job_id}';"
+            cursor.execute(query_excist_job)            
+            result_job= cursor.fetchall()                                 
+            if(len(result_job)==0):
+                return False;
+            return True;            
+   
+    except TypeError as e:
+        return e;
+
+
+def delete_job(job_id): 
+    try:
+        with DataBaseManager.connection.cursor() as cursor: 
+            if_row_excist = find_job_by_id(job_id)           
+            if(if_row_excist):
+                delete_candidate_of_jobs= f"Delete from person_jobs where job='{job_id}';"
+                delete_job_from_open_jobs = f"Delete from open_jobs where oj_id='{job_id}';"
+                cursor.execute(delete_candidate_of_jobs)
+                cursor.execute(delete_job_from_open_jobs)
+                DataBaseManager.connection.commit()
+                return {"succes":200}            
+            return {}
+
+   
+    except TypeError as e:
+        return e;
