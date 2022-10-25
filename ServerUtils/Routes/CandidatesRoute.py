@@ -17,10 +17,10 @@ def get_candidates_of_jobs(job_id):
     candidates=candidateQueries.get_candidates_of_jobs(job_id)
     return candidates;
 
-# @router.post('/')
-# def add_candidate (candidate):    
-#     candidate=candidateQueries.
-#     return new_candidate;
+@router.post('/')
+def add_candidate (candidate):    
+    new_candidate=candidateQueries.add_candidate(candidate)
+    return new_candidate;
 
 
 
