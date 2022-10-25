@@ -1,10 +1,10 @@
 import json
-import Candidate
-import Departements
-import FinalStage
-import OpenJob
-import JobByPerson
-import Status
+from ServerUtils.TypesOfObject import Candidate
+from ServerUtils.TypesOfObject import Departements
+from ServerUtils.TypesOfObject import FinalStage
+from ServerUtils.TypesOfObject import OpenJob
+from ServerUtils.TypesOfObject import JobByPerson
+from ServerUtils.TypesOfObject import Status
 
 
 def _get_dict_from_json(json_dir: str):
@@ -18,7 +18,7 @@ def _parse_person_jobs_data(person_jobs_data):
     candidates, open_jobs, person_jobs, statuses, final_stages, departements = set(
     ), set(), set(), set(), set(), set()
     person_jobs_data = person_jobs_data[0]
-    print(departements)
+    # print(departements)
     for d in person_jobs_data["departements"]:
         dep = Departements.Departements((d["dep_name"]))
         departements.add(dep)
@@ -45,7 +45,7 @@ def _parse_person_jobs_data(person_jobs_data):
         person_job = JobByPerson.JobByPerson(
             pj["candidante_id"], pj["job_id"], pj["status"], pj["finsl_stage"])
         person_jobs.add(person_job)
-    print(open_jobs)
+    # print(open_jobs)
 
     return candidates, open_jobs, person_jobs, statuses, final_stages, departements
 
@@ -53,8 +53,6 @@ def _parse_person_jobs_data(person_jobs_data):
 def parse(json_dir: str):
     person_jobs_data = _get_dict_from_json(json_dir)
     return _parse_person_jobs_data(person_jobs_data)
-
-
 
 
 # print(parse("SqlUtils/utils/person_jobs.json"))
