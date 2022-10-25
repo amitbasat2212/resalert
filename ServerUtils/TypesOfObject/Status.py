@@ -1,5 +1,5 @@
 class Status:
-    def __init__(self, s_name: str, s_order: int) -> None:
+    def __init__(self, s_order: int, s_name: str) -> None:
         self.s_name = s_name
         self.s_order = s_order
 

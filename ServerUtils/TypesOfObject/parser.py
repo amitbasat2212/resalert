@@ -28,7 +28,7 @@ def _parse_person_jobs_data(person_jobs_data):
         final_stages.add(final_stage)
 
     for s in person_jobs_data["status"]:
-        status = Status.Status(s["s_name"], s["s_order"])
+        status = Status.Status(s["s_order"], s["s_name"])
         statuses.add(status)
 
     for c in person_jobs_data["candidates"]:
