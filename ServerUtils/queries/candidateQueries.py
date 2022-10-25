@@ -22,7 +22,7 @@ def get_candidates_of_job_by_id(job_id):
     candidates_of_jobs=[]
     try:
         with DataBaseManager.connection.cursor() as cursor:            
-            query_candidates_of_jobs = f"SELECT * from person_jobs where job ={job_id}  ;"
+            query_candidates_of_jobs = f"SELECT * from person_jobs as pe,candidates as ca WHERE ca.c_mail=pe.candidate_mail AND job ={job_id}  ;"
             cursor.execute(query_candidates_of_jobs)            
             result_candidates = cursor.fetchall()                                 
             candidates_of_jobs=create_candidates(result_candidates);
@@ -37,7 +37,7 @@ def get_candidates_of_all_jobs():
     candidates_of_jobs=[]
     try:
         with DataBaseManager.connection.cursor() as cursor:            
-            query_candidates_of_jobs = f"SELECT * from person_jobs;"
+            query_candidates_of_jobs = f"SELECT * from person_jobs as pe,candidates as ca WHERE ca.c_mail=pe.candidate_mail;"
             cursor.execute(query_candidates_of_jobs)            
             result_candidates = cursor.fetchall()                                 
             candidates_of_jobs=create_candidates(result_candidates);
