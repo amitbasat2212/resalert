@@ -5,4 +5,4 @@ class OpenJob:
         self.dep_name = dep_name
 
     def __repr__(self) -> str:
-        return f"<OpenJob>  ({self.id},{self.name},{self.dep_name})"
+        return f"({self.id},{self.name},{self.dep_name})"
