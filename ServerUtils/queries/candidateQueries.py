@@ -1,7 +1,7 @@
 from unittest import result
 from  ServerUtils.DataBaseConnection import DataBaseManager;
+from ServerUtils.TypesOfObject import PersonJobs
 from ServerUtils.TypesOfObject import Candidate
-from ServerUtils.TypesOfObject import Person
 
 def create_candidates(candidates):
     candidates_of_jobs=[]
@@ -10,7 +10,7 @@ def create_candidates(candidates):
     return candidates_of_jobs;    
  
 def create_candidate(candidate):
-    new_candidate=(Candidate.Candiddate(candidate["c_first_name"],candidate["c_last_name"],
+    new_candidate=(PersonJobs.PersonJobs(candidate["c_first_name"],candidate["c_last_name"],
         candidate["c_mail"],
         candidate["c_cv"],
         candidate["job"],
@@ -51,7 +51,7 @@ def get_candidates_of_all_jobs():
 
 
 def create_person(candidate_user):
-    new_candidate_person=(Person.Person(candidate_user["c_first_name"],candidate_user["c_last_name"],
+    new_candidate_person=(Candidate.Candidate(candidate_user["c_first_name"],candidate_user["c_last_name"],
         candidate_user["c_mail"],
         candidate_user["c_cv"],
         candidate_user["c_gender"]))
