@@ -1,0 +1,140 @@
+[
+    {
+        "departements":[{
+            "dep_name":"IT"
+        },{
+            "dep_name":"R&D"
+        },{
+            "dep_name":"Finance"
+        },{
+            "dep_name":"HR"
+        }],
+        "final_stage":[{
+            "fs_name":"Pending"
+        },{
+            "fs_name":"On process"
+        },{
+            "fs_name":"Rejected"
+        },{
+            "fs_name":"Hired"
+        }] ,
+        "status":[{
+            "s_name":"CV unread",
+            "s_order": 1
+        },{
+            "s_name":"CV checked",
+            "s_order": 2
+        },{
+            "s_name":"Manager screening",
+            "s_order": 3
+        },{
+            "s_name":"Phone interview ",
+            "s_order": 4
+        },{
+            "s_name":"PM interview",
+            "s_order": 5
+        },{
+            "s_name":"Assignment",
+            "s_order": 6
+        },{
+            "s_name":"HR interview",
+            "s_order": 7
+        },{
+            "s_name":"SM interview",
+            "s_order": 8
+        },{
+            "s_name":"Recommendation",
+            "s_order": 9
+        },{
+            "s_name":"Contract offer",
+            "s_order": 10
+        }
+        ],
+        "candidates": [{
+            "c_first_name":"Eden",	 
+            "c_last_name":"Gil",	 
+	        "c_mail":"edengil@gmail.com",	 
+            "c_cv":"/edengil.pdf",	 
+            "c_gender":"m"
+        },{
+            "c_first_name":"Or",	 
+            "c_last_name":"levy",	 
+	        "c_mail":"orlevy@gmail.com",	 
+            "c_cv":"/orlevy.pdf",	 
+            "c_gender":"m"
+        },{
+            "c_first_name":"Amit",	 
+            "c_last_name":"Ben Basat",	 
+	        "c_mail":"amitbenbasat@gmail.com",	 
+            "c_cv":"/amitbenbasat.pdf",	 
+            "c_gender":"f"
+        },{
+            "c_first_name":"Israel",	 
+            "c_last_name":"Israeli",	 
+	        "c_mail":"israelisraeli@gmail.com",	 
+            "c_cv":"/israelisraeli.pdf",	 
+            "c_gender":"m"
+        },{
+            "c_first_name":"Rami",	 
+            "c_last_name":"David",	 
+	        "c_mail":"rami@gmail.com",	 
+            "c_cv":"/rami.pdf",	 
+            "c_gender":"m"
+        },{
+            "c_first_name":"Coral",	 
+            "c_last_name":"Kanya",	 
+	        "c_mail":"coralkanya@gmail.com",	 
+            "c_cv":"/coralkanya.pdf",	 
+            "c_gender":"f"
+        },{
+            "c_first_name":"Amir",	 
+            "c_last_name":"Catlover",	 
+	        "c_mail":"amircatlober@gmail.com",	 
+            "c_cv":"/amircatlober.pdf",	 
+            "c_gender":"m"
+        }],
+         "open_jobs":[{
+            "oj_id": "121",	 
+            "job_name":"FullStack",
+            "department_name":"R&D"
+         },{
+            "oj_id": "122",	 
+            "job_name":"Finance Manager",
+            "department_name":"Finance"
+         },{
+            "oj_id": "123",	 
+            "job_name":"DevOps",
+            "department_name":"R&D"
+         },{
+            "oj_id": "124",	 
+            "job_name":"Human Resource Manager",
+            "department_name":"HR"
+         },{
+            "oj_id": "125",	 
+            "job_name":"Electrician",
+            "department_name":"IT"
+         },{
+            "oj_id": "126",	 
+            "job_name":"CSS developer",
+            "department_name":"R&D"
+         }],
+         "person_jobs":[{
+            "candidante_id":"edengil@gmail.com",	 
+            "job_id":"125",
+            "status":"Assignment",
+            "finsl_stage":"On process"
+         },{
+            "candidante_id":"orlevy@gmail.com",	 
+            "job_id":"121",
+            "status":"Recommendation",
+            "finsl_stage":"On process"
+         },{
+            "candidante_id":"amitbenbasat@gmail.com",	 
+            "job_id":"126",
+            "status":"Recommendation",
+            "finsl_stage":"Contract offer"
+         }]
+
+    }
+]
+
