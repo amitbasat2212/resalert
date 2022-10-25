@@ -9,9 +9,9 @@ def create_open_jobs(jobs):
         
 
 def create_open_job(job):
-   open_job= OpenJob.OpenJob(job["oj_id"],
-        job["job_name"],
-        job["department_name"]);
+   open_job= OpenJob.OpenJob(job["id"],
+        job["name"],
+        job["dep_name"]);
    return open_job;     
 
 
@@ -33,12 +33,10 @@ def get_open_jobs():
 def add_job(open_job):  
     try:
         with DataBaseManager.connection.cursor() as cursor:            
-            insert_new_job = f"""INSERT IGNORE INTO open_jobs values('{open_job["id"]}',
-            '{open_job["name"]}',
-            '{open_job["dep_name"]}'"""
+            insert_new_job = f"INSERT IGNORE INTO open_jobs values('{open_job['id']}','{open_job['name']}','{open_job['dep_name']}')"
             cursor.execute(insert_new_job)
             DataBaseManager.connection.commit()                              
-            new_open_job=create_open_jobs(open_job);
+            new_open_job=create_open_job(open_job);
             return new_open_job;  
     except TypeError as e:
         return e;
