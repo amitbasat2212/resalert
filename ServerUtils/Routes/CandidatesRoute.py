@@ -8,7 +8,6 @@ router = APIRouter(
 )
 
 
-
 @router.get('/')
 def get_candidates_of_jobs():
     candidates=CandidateQueries.get_candidates_of_all_jobs();
