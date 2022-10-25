@@ -50,21 +50,17 @@ def get_candidates_of_all_jobs():
 
 
 def create_person(candidate_user):
-    new_candidate_person = (Candidate.Candidate(candidate_user["c_first_name"], candidate_user["c_last_name"],
-                                                candidate_user["c_mail"],
-                                                candidate_user["c_cv"],
-                                                candidate_user["c_gender"]))
+    new_candidate_person = (Candidate.Candidate(candidate_user["f_name"], candidate_user["l_name"],
+                                                candidate_user["email"],
+                                                candidate_user["cv"],
+                                                candidate_user["Gender"]))
     return new_candidate_person
 
 
 def add_candidate_user(candidate):
     try:
         with DataBaseManager.connection.cursor() as cursor:
-            insert_candidate_user = f"""INSERT IGNORE INTO candidates values('{candidate["f_name"]}',
-            '{candidate["l_name"]}',
-            '{candidate["email"]}',
-            '{candidate["cv"]}',
-            '{candidate["Gender"]}'"""
+            insert_candidate_user = f"INSERT IGNORE INTO candidates values('{candidate['f_name']}','{candidate['l_name']}','{candidate['email']}','{candidate['cv']}','{candidate['Gender']}')"
             cursor.execute(insert_candidate_user)
             DataBaseManager.connection.commit()
             new_candidate_user = create_person(candidate)
