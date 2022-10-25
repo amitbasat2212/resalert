@@ -16,4 +16,4 @@ class Candidate:
         return f"('{self.f_name}','{self.l_name}','{self.mail}','{self.cv}','{self.Gender}')"
 
     def __repr__(self) -> str:
-        return f"<Departements>  ({self.f_name},{self.l_name},{self.mail},{self.cv},{self.Gender})"
+        return f"<Candidate>  ({self.first_name},{self.last_name},{self.mail},{self.cv},{self.Gender})"

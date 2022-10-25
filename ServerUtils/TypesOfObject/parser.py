@@ -45,7 +45,6 @@ def _parse_person_jobs_data(person_jobs_data):
         person_job = JobByPerson.JobByPerson(
             pj["candidante_id"], pj["job_id"], pj["status"], pj["finsl_stage"])
         person_jobs.add(person_job)
-    # print(open_jobs)
 
     return candidates, open_jobs, person_jobs, statuses, final_stages, departements
 
