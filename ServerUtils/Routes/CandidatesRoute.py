@@ -1,3 +1,4 @@
+from fastapi import Request
 from fastapi import APIRouter
 
 from ServerUtils.queries import CandidateQueries;
@@ -20,8 +21,9 @@ def get_candidates_of_jobs(job_id):
     return candidates;
 
 @router.post('/')
-def add_candidate (candidate):    
-    new_candidate=CandidateQueries.add_candidate(candidate)
+async def add_candidate (request: Request): 
+    candidate =await request.json()
+    new_candidate=CandidateQueries.add_candidate_user(candidate)
     return new_candidate;
 
 
