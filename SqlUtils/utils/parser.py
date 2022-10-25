@@ -1,8 +1,10 @@
 import json
-from objects.departements import Departements
-# from objects.trainer import Trainer
-# from objects.p_t_pair import P_T_Pair
-# from objects.type import Type
+from ServerUtils.TypesOfObject.Candidate import Candidate
+from ServerUtils.TypesOfObject.Departements import Departements
+from ServerUtils.TypesOfObject.FinalStage import FinalStage
+from ServerUtils.TypesOfObject.OpenJob import OpenJob
+from ServerUtils.TypesOfObject.PersonJobs import PersonJobs
+from ServerUtils.TypesOfObject.Status import Status
 # from utils.constants import *
 
 
@@ -13,9 +15,8 @@ def _get_dict_from_json(json_dir: str):
     return person_jobs_data
 
 
-
 def _parse_person_jobs_data(person_jobs_data):
-    # pokemons, pokemons_trainers, pokemons_types = set(), set(), set()
+    status, pokemons_trainers, pokemons_types = set(), set(), set()
 
     trainers = dict()  # {trainer: trainerId}
     types = dict()  # {type: trainerId}
