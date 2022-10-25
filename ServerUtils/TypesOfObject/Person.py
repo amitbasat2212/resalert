@@ -1,8 +1,8 @@
 class Person:
-    def __init__(self, first_name, last_name,mail,cv,gender):
-        self.first_name = first_name
-        self.last_name = last_name        
+    def __init__(self, f_name, l_name,mail,cv,Gender):
+        self.first_name = f_name
+        self.last_name = l_name        
         self.mail = mail
         self.cv = cv
-        self.job = gender
+        self.Gender = Gender
         

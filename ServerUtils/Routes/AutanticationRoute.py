@@ -10,8 +10,8 @@ router = APIRouter(
 )
 
 
-@router.get('/index')
-def login():
+@router.get('/')
+def login(userName=None,password=None):
     return FileResponse('client/index.html')
 
 
