@@ -1,0 +1,1 @@
+CREATE DATABASE res_alert
