@@ -39,7 +39,8 @@ def update_status_of_job_of_candidate(candidate_email,job_id,status_name):
         with DataBaseManager.connection.cursor() as cursor:
             new_status = get_new_status_order(status_name)
             update_status_of_person_in_job = f"UPDATE person_jobs SET status={new_status} WHERE candidate_mail={candidate_email} AND job={job_id}"
-            cursor.execute(update_status_of_person_in_job)      
+            cursor.execute(update_status_of_person_in_job)   
+            DataBaseManager.connection.commit()        
             return {"succes":200};          
    
     except TypeError as e:

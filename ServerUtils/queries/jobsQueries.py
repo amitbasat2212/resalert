@@ -38,7 +38,7 @@ def add_job(open_job):
             '{open_job["dep_name"]}'"""
             cursor.execute(insert_new_job)
             DataBaseManager.connection.commit()                              
-            new_open_job=create_open_job(open_job);
+            new_open_job=create_open_jobs(open_job);
             return new_open_job;  
     except TypeError as e:
         return e;
