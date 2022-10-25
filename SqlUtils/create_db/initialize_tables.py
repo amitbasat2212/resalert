@@ -1,5 +1,5 @@
 import pymysql
-
+from ServerUtils.TypesOfObject.parser import parse
 
 def init_table(connection, table_name, data):
     try:
@@ -16,12 +16,12 @@ def init_table(connection, table_name, data):
 
 
 if __name__ == "__main__":
-    # pokemons, trainers, pokemons_trainers, types, pokemons_types = parse(POKE_DATA_DIR)
+    candidates, open_jobs, person_jobs, statuses, final_stages, departements = parse("SqlUtils/utils/person_jobs.json")
     connection = pymysql.connect(
         host="localhost",
         user="root",
         password="",
-        db="poke_tracker",
+        db="res_alert",
         charset="utf8",
         cursorclass=pymysql.cursors.DictCursor,
     )
