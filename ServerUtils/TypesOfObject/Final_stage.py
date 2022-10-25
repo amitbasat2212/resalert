@@ -11,4 +11,4 @@ class Final_Stage:
         return f"('{self.fs_name}')"
 
     def __repr__(self) -> str:
-        return f"<Type>  {self.fs_name}"
+        return f"<Final_Stage>  {self.fs_name}"

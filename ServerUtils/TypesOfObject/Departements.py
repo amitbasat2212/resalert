@@ -12,4 +12,4 @@ class Departements:
         return f"('{self.dep_name}')"
 
     def __repr__(self) -> str:
-        return f"<Type>  {self.dep_name}"
+        return f"<Departements>  {self.dep_name}"
