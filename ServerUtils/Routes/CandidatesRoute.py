@@ -1,3 +1,4 @@
+from os import stat
 from fastapi import Request
 from fastapi import APIRouter
 
@@ -9,18 +10,49 @@ router = APIRouter(
 )
 
 
+def add_items_to_list(result): 
+    list_of_item_to_return=[]             
+    for item in result:
+        list_of_item_to_return.append(item)     
+                         
+    return list_of_item_to_return;       
+
+
+      
+
+
+def check_if_empty(array_result):
+    if(len(array_result)==0):
+        return True;
+
+
+
+
 @router.get('/')
 def get_candidates_of_jobs(job_id ="", status ="", stage ="", gender =""):
-    # if job_id is not "":
-    #     candidates1=CandidateQueries.get_candidates_of_all_jobs();
-    # if status is not "":
-    #     candidates2 = 
-    # if stage is not "":  
+    list_of_filters=CandidateQueries.get_candidates_of_all_jobs();    
 
-    # if gender is not "":     
-   
-    # return candidates;
-    pass;
+    if job_id != "":
+        list_of_filters=[p for p in list_of_filters if p.job == int(job_id)]
+
+    if status  != "":
+        list_of_filters=[p for p in list_of_filters if p.status == status]       
+     
+       
+    if stage  != "":  
+       list_of_filters=[p for p in list_of_filters if p.stage == stage]        
+    
+     
+    if gender != "": 
+       list_of_filters=[p for p in list_of_filters if p.Gender == gender]       
+       
+    if  gender  == "" and stage  == "" and status  == "" and job_id  == "":
+        list_of_filters=CandidateQueries.get_candidates_of_all_jobs();
+
+    
+    
+    return list_of_filters;
+    
 
 
 @router.get('/{job_id}')
