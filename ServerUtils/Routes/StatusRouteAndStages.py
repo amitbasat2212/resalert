@@ -19,3 +19,4 @@ def update_the_stage_of_candidate_job(candidate_id,job_id,stages_name):
     update_stage=StageQueries.update_the_final_stage(candidate_id,job_id,stages_name)
     return update_stage;
 
+   
