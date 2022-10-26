@@ -2,7 +2,12 @@ from ServerUtils.TypesOfObject import FinalStage
 from ServerUtils.DataBaseConnection import DataBaseManager
 
 
+<<<<<<< HEAD
 def check_is_stage_in_db(stage_name):
+=======
+
+def update_the_final_stage(candidate_email,job_id,stage_name):
+>>>>>>> 4d5cb5c10ec11dcc0f23e79ebc455ec84b956909
     try:
         with DataBaseManager.connection.cursor() as cursor:
             query_next_status = f"SELECT fs_name from final_stage where fs_name='{stage_name}';"

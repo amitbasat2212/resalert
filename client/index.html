@@ -34,13 +34,13 @@
     />
 
     <!-- Custom styles for this template -->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+    <link href="client/css/sb-admin-2.min.css" rel="stylesheet" />
 
     <!-- Custom styles for this page -->
-    <link
+    <!-- <link
       href="vendor/datatables/dataTables.bootstrap4.min.css"
       rel="stylesheet"
-    />
+    /> -->
   </head>
 
   <body id="page-top">
@@ -131,7 +131,11 @@
 
     <script id="jobsDropdown-template" type="text/x-handlebars-template">
       {{#each job}}
-        <li><a class="dropdown-item pos" data-id="{{id}}" href="#">{{name}}</a></li>
+        <li><a
+            class="dropdown-item pos"
+            data-id="{{id}}"
+            href="#"
+          >{{name}}</a></li>
       {{/each}}
     </script>
 
@@ -171,8 +175,24 @@
         <div class="sidebar-heading">menu</div>
 
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item" id="toJobs">
+        <li class="nav-item" id="toCandidates">
           <a
+            id="toCandidates"
+            class="nav-link collapsed"
+            href="#"
+            data-toggle="collapse"
+            data-target="#collapseTwo"
+            aria-expanded="true"
+            aria-controls="collapseTwo"
+          >
+            <i class="fa fa-users" aria-hidden="true"></i>
+
+            <span>Candidates</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            id="toJobs"
             class="nav-link collapsed"
             href="#"
             data-toggle="collapse"
@@ -404,7 +424,15 @@
                     <li><a class="dropdown-item gender" href="#">F</a></li>
                   </ul>
                 </div>
-
+                <div>
+                  <button
+                    id="clear-filters-btn"
+                    class="btn btn-primary"
+                    type="button"
+                  >
+                    Clear filters
+                  </button>
+                </div>
                 <div class="input-group-append">
                   <button id="search-btn" class="btn btn-primary" type="button">
                     <i class="fas fa-search fa-sm"></i>
@@ -415,7 +443,9 @@
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
               <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Candidates</h6>
+                <h6 id="table-name" class="m-0 font-weight-bold text-primary">
+                  Candidates
+                </h6>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
@@ -485,26 +515,26 @@
       integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
       crossorigin="anonymous"
     ></script>
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
+    <script src="client/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Core plugin JavaScript
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script> -->
 
     <!-- Custom scripts for all pages-->
-    <script src="build/sb-admin-2.min.js"></script>
+    <!-- <script src="build/sb-admin-2.min.js"></script> -->
 
     <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <!-- <script src="vendor/datatables/jquery.dataTables.min.js"></script> -->
     <!-- <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script> -->
 
     <!-- Page level custom scripts
     <script src="js/demo/datatables-demo.js"></script> -->
 
     <!-- ResApp JS files -->
-    <script src="build/Filter.js"></script>
-    <script src="build/Model.js"></script>
-    <script src="build/View.js"></script>
-    <script src="build/Controller.js"></script>
+    <script src="client/build/Filter.js"></script>
+    <script src="client/build/Model.js"></script>
+    <script src="client/build/View.js"></script>
+    <script src="client/build/Controller.js"></script>
   </body>
 </html>

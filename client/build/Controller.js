@@ -14,9 +14,9 @@ class Controller {
         this.renderer = new Renderer();
         this.filters = new Filter("", "", "", "");
     }
-    loadCandidates(position, status, stage, gender) {
+    loadCandidates() {
         return __awaiter(this, void 0, void 0, function* () {
-            const candidatesToRender = yield this.Model.getCandidates(position, status, stage, gender);
+            const candidatesToRender = yield this.Model.getCandidates(controller.filters.position, controller.filters.status, controller.filters.stage, controller.filters.gender);
             this.renderer.renderCandidates(candidatesToRender);
         });
     }
@@ -55,6 +55,19 @@ $('#pos-btn').on('click', function () {
 });
 $('#search-btn').on('click', function () {
     return __awaiter(this, void 0, void 0, function* () {
-        yield controller.loadCandidates(controller.filters.position, controller.filters.status, controller.filters.stage, controller.filters.gender);
+        yield controller.loadCandidates();
     });
+});
+$('#clear-filters-btn').on('click', function () {
+    controller.filters.empty();
+    controller.loadCandidates();
+});
+$('#toJobs').on('click', function () {
+    $('#table-name').text('Jobs');
+    controller.loadJobsTable();
+});
+$('#toCandidates').on('click', function () {
+    controller.filters.empty();
+    $('#table-name').text('Candidates');
+    controller.loadCandidates();
 });
