@@ -1,5 +1,5 @@
 from ServerUtils.Routes import StatusRouteAndStages
-דלהfrom ServerUtils.Routes import CandidatesRoute
+from ServerUtils.Routes import CandidatesRoute
 from ServerUtils.Routes import JobsRoute
 from ServerUtils.Routes import AutanticationRoute
 from ServerUtils.queries import initialize_tables;
