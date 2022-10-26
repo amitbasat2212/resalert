@@ -1,8 +1,9 @@
 interface Candidate {
-    f_name:string,
-    l_name:string,
+    first_name:string,
+    last_name:string,
     job: string,
+    job_id: number
     status: string,
     stage: string,
-    gender: string
+    Gender: string
 }

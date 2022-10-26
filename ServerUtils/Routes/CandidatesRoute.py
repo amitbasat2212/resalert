@@ -39,8 +39,6 @@ def get_candidates_of_jobs(job_name ="", status ="", stage ="", gender =""):
        
     if  gender  == "" and stage  == "" and status  == "" and job_name  == "":
         list_of_filters=CandidateQueries.get_candidates_of_all_jobs();
-
-    
     
     return list_of_filters;
     

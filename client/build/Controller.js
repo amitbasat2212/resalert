@@ -31,8 +31,8 @@ const controller = new Controller();
 $("body").on("click", ".dropdown-item", function () {
     console.log(this);
     if ($(this).hasClass('pos')) {
-        controller.filters.position = $(this).data('id');
-        console.log('1');
+        controller.filters.position = this.innerHTML;
+        console.log(controller.filters.position);
     }
     if ($(this).hasClass('stat')) {
         controller.filters.status = this.innerHTML;

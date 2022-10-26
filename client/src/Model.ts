@@ -7,7 +7,7 @@ class Model{
     }
 
     async getCandidates(jobName:string, status:string, stage:string, gender:string): Promise<Candidate[]>{
-       Model.currentCandidates =  await $.get(`/candidates?job=${jobName}&status=${status}&stage=${stage}&gender=${gender}`)
+       Model.currentCandidates =  await $.get(`/candidates?job_name=${jobName}&status=${status}&stage=${stage}&gender=${gender}`)
        return Model.currentCandidates
     }
 
