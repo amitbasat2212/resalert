@@ -1,22 +1,17 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Request, Form
 
 from fastapi.responses import FileResponse
 
 
-
-router = APIRouter(
-    prefix="/autantiction",
-    tags=["autantiction"]
-)
+router = APIRouter()
 
 
-@router.get('/')
-def login(userName=None,password=None):
-    return FileResponse('client/index.html')
-
+@router.post('/login')
+async def login(username: str = Form(), password: str = Form()):
+    return FileResponse('./client/index.html')
 
 
 @router.get('/logout')
 def logout():
-   
+
     pass
