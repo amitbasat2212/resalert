@@ -35,7 +35,7 @@ class Model {
       url: `/jobs/?job_id=${job_id}`,
       type: "DELETE",
       dataType: "json",
-      contentType: "application/json",
+      contentType: "application/json"
     });
   }
 }
