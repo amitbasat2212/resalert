@@ -6,4 +6,10 @@ class Filter {
         this.stage = stage;
         this.gender = gender;
     }
+    empty() {
+        this.position = "";
+        this.status = "";
+        this.stage = "";
+        this.gender = "";
+    }
 }

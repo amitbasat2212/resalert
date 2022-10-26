@@ -4,8 +4,8 @@ class Controller {
     renderer = new Renderer()
     filters = new Filter("","", "", "")
 
-    async loadCandidates(position:string, status:string, stage:string, gender:string){
-        const candidatesToRender: Candidate[] = await this.Model.getCandidates(position, status, stage, gender)
+    async loadCandidates(){
+        const candidatesToRender: Candidate[] = await this.Model.getCandidates(controller.filters.position, controller.filters.status, controller.filters.stage, controller.filters.gender)
         this.renderer.renderCandidates(candidatesToRender)
     }
 
@@ -43,6 +43,21 @@ $('#pos-btn').on('click', async function(){
 })
 
 $('#search-btn').on('click', async function(){
-   await  controller.loadCandidates(controller.filters.position, controller.filters.status, controller.filters.stage, controller.filters.gender)
+   await  controller.loadCandidates()
 })
 
+$('#clear-filters-btn').on('click', function(){
+    controller.filters.empty()
+    controller.loadCandidates()
+})
+
+$('#toJobs').on('click', function(){
+    $('#table-name').text('Jobs')
+    controller.loadJobsTable()
+})
+
+$('#toCandidates').on('click', function(){
+    controller.filters.empty()
+    $('#table-name').text('Candidates')
+    controller.loadCandidates()
+})

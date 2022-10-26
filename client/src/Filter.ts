@@ -10,4 +10,11 @@ class Filter {
         this.gender= gender
 
     }
+
+    empty(){
+        this.position = ""
+        this.status = ""
+        this.stage = ""
+        this.gender = ""
+    }
 }
