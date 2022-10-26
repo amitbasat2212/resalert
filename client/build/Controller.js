@@ -53,11 +53,13 @@ $("body").on("click", ".dropdown-item", function () {
         console.log('4');
     }
 });
-$("body").on('click', "update-btn", function () {
-    const jobId = $(this).data('job');
-    const candidateId = $(this).data('cand');
-    controller.Model.
-    ;
+$("body").on('click', ".update-btn", function () {
+    return __awaiter(this, void 0, void 0, function* () {
+        const jobId = $(this).data('job');
+        const candidateId = $(this).data('cand');
+        yield controller.Model.updateStatus(jobId, candidateId);
+        controller.loadCandidates();
+    });
 });
 $('#pos-btn').on('click', function () {
     return __awaiter(this, void 0, void 0, function* () {

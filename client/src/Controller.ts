@@ -42,11 +42,11 @@ $("body").on("click", ".dropdown-item", function(){
     }
 })
 
-$("body").on('click', "update-btn", function(){
+$("body").on('click', ".update-btn", async function(){
     const jobId = $(this).data('job')
     const candidateId = $(this).data('cand')
-    controller.Model.
-
+    await controller.Model.updateStatus(jobId, candidateId)
+    controller.loadCandidates()
 })
 
 $('#pos-btn').on('click', async function(){

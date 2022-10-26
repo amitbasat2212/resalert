@@ -22,7 +22,7 @@ class Model{
    
      updateStatus(jobId:string, candidateId:string){
       $.ajax({
-         url: `/status?job_id=${jobId}&candidate_id=${candidateId}`,
+         url: `/personjobs/status?job_id=${jobId}&candidate_id=${candidateId}`,
          type: 'PUT'
        });
          
