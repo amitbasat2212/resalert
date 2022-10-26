@@ -5,8 +5,8 @@ from ServerUtils.queries import StageQueries;
 
 
 router = APIRouter(
-    prefix="/PersonJobs",
-    tags=["PersonJobs"]
+    prefix="/personjobs",
+    tags=["personjobs"]
 )
 
 @router.put('/status')

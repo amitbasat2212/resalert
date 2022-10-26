@@ -9,9 +9,9 @@ def create_open_jobs(jobs):
         
 
 def create_open_job(job):
-   open_job= OpenJob.OpenJob(job["id"],
-        job["name"],
-        job["dep_name"]);
+   open_job= OpenJob.OpenJob(job["oj_id"],
+        job["job_name"],
+        job["department_name"]);
    return open_job;     
 
 
@@ -33,7 +33,7 @@ def get_open_jobs():
 def add_job(open_job):  
     try:
         with DataBaseManager.connection.cursor() as cursor:            
-            insert_new_job = f"INSERT IGNORE INTO open_jobs values('{open_job['id']}','{open_job['name']}','{open_job['dep_name']}')"
+            insert_new_job = f"INSERT IGNORE INTO open_jobs values('{open_job['oj_id']}','{open_job['job_name']}','{open_job['department_name']}')"
             cursor.execute(insert_new_job)
             DataBaseManager.connection.commit()                              
             new_open_job=create_open_job(open_job);
@@ -62,7 +62,7 @@ def delete_job(job_id):
         with DataBaseManager.connection.cursor() as cursor: 
             if_row_excist = find_job_by_id(job_id)           
             if(if_row_excist):
-                delete_candidate_of_jobs= f"Delete from person_jobs where job='{job_id}';"
+                delete_candidate_of_jobs= f"Delete from person_jobs where job_id='{job_id}';"
                 delete_job_from_open_jobs = f"Delete from open_jobs where oj_id='{job_id}';"
                 cursor.execute(delete_candidate_of_jobs)
                 cursor.execute(delete_job_from_open_jobs)
