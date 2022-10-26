@@ -129,6 +129,12 @@
       </tbody>
     </script>
 
+    <script id="jobsDropdown-template" type="text/x-handlebars-template">
+      {{#each job}}
+        <li><a class="dropdown-item pos" data-id="{{id}}" href="#">{{name}}</a></li>
+      {{/each}}
+    </script>
+
     <!-- Page Wrapper -->
     <div id="wrapper">
       <!-- Sidebar -->
@@ -305,8 +311,9 @@
               class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
             >
               <div class="input-group" style="z-index: 1">
-                <div class="dropdown" id="pos-btn">
+                <div class="dropdown">
                   <button
+                    id="pos-btn"
                     class="btn btn-info dropdown-toggle"
                     type="button"
                     data-bs-toggle="dropdown"
@@ -314,17 +321,7 @@
                   >
                     Position
                   </button>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item pos" href="#">Action</a></li>
-                    <li>
-                      <a class="dropdown-item pos" href="#">Another action</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item pos" href="#"
-                        >Something else here</a
-                      >
-                    </li>
-                  </ul>
+                  <ul class="dropdown-menu" id="drop-pos-container"></ul>
                 </div>
 
                 <div class="dropdown">
@@ -338,7 +335,7 @@
                   </button>
                   <ul class="dropdown-menu">
                     <li>
-                      <a class="dropdown-item" href="#">CV recieved</a>
+                      <a class="dropdown-item stat" href="#">CV recieved</a>
                     </li>
                     <li>
                       <a class="dropdown-item stat" href="#">CV checked</a>
@@ -408,8 +405,8 @@
                   </ul>
                 </div>
 
-                <div class="search-btn input-group-append">
-                  <button class="btn btn-primary" type="button">
+                <div class="input-group-append">
+                  <button id="search-btn" class="btn btn-primary" type="button">
                     <i class="fas fa-search fa-sm"></i>
                   </button>
                 </div>
@@ -505,6 +502,7 @@
     <script src="js/demo/datatables-demo.js"></script> -->
 
     <!-- ResApp JS files -->
+    <script src="build/Filter.js"></script>
     <script src="build/Model.js"></script>
     <script src="build/View.js"></script>
     <script src="build/Controller.js"></script>

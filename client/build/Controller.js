@@ -10,17 +10,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 class Controller {
     constructor() {
-        // renderer = new Renderer()
         this.Model = new Model();
         this.renderer = new Renderer();
+        this.filters = new Filter("", "", "", "");
     }
-    loadCandidates(jobName, status, stage, gender) {
+    loadCandidates(position, status, stage, gender) {
         return __awaiter(this, void 0, void 0, function* () {
-            const candidatesToRender = yield this.Model.getCandidates(jobName, status, stage, gender);
+            const candidatesToRender = yield this.Model.getCandidates(position, status, stage, gender);
             this.renderer.renderCandidates(candidatesToRender);
         });
     }
-    loadJobs() {
+    loadJobsTable() {
         return __awaiter(this, void 0, void 0, function* () {
             const jobsToRender = yield this.Model.getJobs();
             this.renderer.renderJobs(jobsToRender);
@@ -29,34 +29,32 @@ class Controller {
 }
 const controller = new Controller();
 $("body").on("click", ".dropdown-item", function () {
-    console.log("ffffffff");
+    console.log(this);
     if ($(this).hasClass('pos')) {
-        // controller.filters.position = this.innerHTML
+        controller.filters.position = $(this).data('id');
         console.log('1');
     }
     if ($(this).hasClass('stat')) {
-        // controller.filters.status = this.innerHTML
+        controller.filters.status = this.innerHTML;
         console.log('2');
     }
     if ($(this).hasClass('stage')) {
-        // controller.filters.stage = this.innerHTML
+        controller.filters.stage = this.innerHTML;
         console.log('3');
     }
     if ($(this).hasClass('gender')) {
-        // controller.filters.gender = this.innerHTML
+        controller.filters.gender = this.innerHTML;
         console.log('4');
     }
 });
-// $('#search-btn').on('click', async function(){
-//     const positionEvent: any = $('#pos-btn')
-//     positionEvent.
-//     const dairy: boolean = $('#dairy-free').is(':checked')
-//     const ingredient = $("#ingredient").val() 
-//     if(typeof ingredient === 'string' ){
-//         await controller.loadRecipes(ingredient, gluten, dairy)
-//     }
-// })
-// $('#container').on('click','.recipe-image', async function(){
-//     const ingredientElement = $(this).closest('.recipe').find('.ingredient');
-//     alert(ingredientElement[0].innerHTML)
-// })
+$('#pos-btn').on('click', function () {
+    return __awaiter(this, void 0, void 0, function* () {
+        const jobs = yield controller.Model.getJobs();
+        controller.renderer.renderJobsDropDown(jobs);
+    });
+});
+$('#search-btn').on('click', function () {
+    return __awaiter(this, void 0, void 0, function* () {
+        yield controller.loadCandidates(controller.filters.position, controller.filters.status, controller.filters.stage, controller.filters.gender);
+    });
+});
