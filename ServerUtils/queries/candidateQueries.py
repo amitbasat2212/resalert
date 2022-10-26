@@ -22,8 +22,6 @@ def create_candidate(candidate):
     return new_candidate
 
 
-
-
 def get_candidates_of_all_jobs():
     candidates_of_jobs = []
     try:
