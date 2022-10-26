@@ -16,7 +16,7 @@ class Model {
     }
     getCandidates(jobName, status, stage, gender) {
         return __awaiter(this, void 0, void 0, function* () {
-            Model.currentCandidates = yield $.get(`/candidates?job_name=${jobName}&status=${status}&stage=${stage}&gender=${gender}`);
+            Model.currentCandidates = yield $.get(`/candidates?job=${jobName}&status=${status}&stage=${stage}&gender=${gender}`);
             return Model.currentCandidates;
         });
     }
@@ -29,6 +29,12 @@ class Model {
     addNewCandidate(newCandidate) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield $.post(`/candidates`, JSON.stringify(newCandidate));
+        });
+    }
+    updateStatus(jobId, candidateId) {
+        $.ajax({
+            url: `/personjobs/status?job_id=${jobId}&candidate_id=${candidateId}`,
+            type: 'PUT'
         });
     }
     addNewJob(newJob) {
@@ -47,4 +53,3 @@ class Model {
         });
     }
 }
-// `/jobs`, JSON.stringify(job_id));

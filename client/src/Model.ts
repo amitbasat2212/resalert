@@ -23,19 +23,28 @@ class Model {
     return Model.currentJobs;
   }
 
-  async addNewCandidate(newCandidate: Candidate): Promise<Candidate> {
-    return await $.post(`/candidates`, JSON.stringify(newCandidate));
-  }
+   async addNewCandidate(newCandidate: Candidate ): Promise<Candidate>{
+      return await $.post(`/candidates`,JSON.stringify(newCandidate))
+   }
 
-  async addNewJob(newJob: Job): Promise<Job> {
-    return await $.post(`/jobs`, JSON.stringify(newJob));
-  }
-  async deleteJob(job_id: number) {
-    return await $.ajax({
-      url: `/jobs/?job_id=${job_id}`,
-      type: "DELETE",
-      dataType: "json",
-      contentType: "application/json"
-    });
-  }
+   updateStatus(jobId:string, candidateId:string){
+   $.ajax({
+      url: `/personjobs/status?job_id=${jobId}&candidate_id=${candidateId}`,
+      type: 'PUT'
+      });
+      
+   }
+   async addNewJob(newJob: Job ): Promise<Job>{
+      return await $.post(`/jobs`,JSON.stringify(newJob))
+   }
+
+   async deleteJob(job_id: number) {
+      return await $.ajax({
+        url: `/jobs/?job_id=${job_id}`,
+        type: "DELETE",
+        dataType: "json",
+        contentType: "application/json",
+      });
+    }
 }
+
