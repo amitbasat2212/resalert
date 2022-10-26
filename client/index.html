@@ -103,6 +103,8 @@
               <button
                 type="button"
                 class="update-btn btn btn-link btn-sm btn-rounded"
+                data-job="{{job_id}}"
+                data-cand="{{mail}}"
               >
                 Update
               </button>
@@ -373,7 +375,7 @@
                   </button>
                   <ul class="dropdown-menu">
                     <li>
-                      <a class="dropdown-item stat" href="#">CV recieved</a>
+                      <a class="dropdown-item stat" href="#">CV unread</a>
                     </li>
                     <li>
                       <a class="dropdown-item stat" href="#">CV checked</a>
@@ -399,10 +401,10 @@
                       <a class="dropdown-item stat" href="#">SM interview</a>
                     </li>
                     <li>
-                      <a class="dropdown-item stat" href="#">Recommendations</a>
+                      <a class="dropdown-item stat" href="#">Recommendation</a>
                     </li>
                     <li>
-                      <a class="dropdown-item stat" href="#">Contrect offer</a>
+                      <a class="dropdown-item stat" href="#">Contract offer</a>
                     </li>
                   </ul>
                 </div>
@@ -438,8 +440,8 @@
                     Gender
                   </button>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item gender" href="#">M</a></li>
-                    <li><a class="dropdown-item gender" href="#">F</a></li>
+                    <li><a class="dropdown-item gender" href="#">m</a></li>
+                    <li><a class="dropdown-item gender" href="#">f</a></li>
                   </ul>
                 </div>
                 <div class="mr-1">
@@ -466,7 +468,7 @@
                 </h6>
               </div>
               <div class="card-body">
-                <div class="table-responsive">
+                <div class="table-responsive text-center">
                   <table
                     id="table-container"
                     class="align-middle mb-0 bg-white"

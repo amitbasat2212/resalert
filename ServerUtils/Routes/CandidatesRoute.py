@@ -10,12 +10,7 @@ router = APIRouter(
 )
 
 
-def add_items_to_list(result): 
-    list_of_item_to_return=[]             
-    for item in result:
-        list_of_item_to_return.append(item)     
-                         
-    return list_of_item_to_return;       
+   
 
 
 
@@ -39,8 +34,6 @@ def get_candidates_of_jobs(job_name ="", status ="", stage ="", gender =""):
        
     if  gender  == "" and stage  == "" and status  == "" and job_name  == "":
         list_of_filters=CandidateQueries.get_candidates_of_all_jobs();
-
-    
     
     return list_of_filters;
     
@@ -53,6 +46,11 @@ async def add_candidate (request: Request):
     new_candidate=CandidateQueries.add_candidate_user(candidate)
     return new_candidate;
 
+@router.post('/jobs')
+async def add_candidate_to_jobs(candidate_email,job_id): 
+    new_candidate_to_job =CandidateQueries.add_candidate_to_a_job(candidate_email,job_id);    
+    return new_candidate_to_job;
+    
 
 
     
