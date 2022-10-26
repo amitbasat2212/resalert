@@ -2,6 +2,7 @@ from ServerUtils.Routes import StatusRouteAndStages
 from ServerUtils.Routes import CandidatesRoute
 from ServerUtils.Routes import JobsRoute
 from ServerUtils.Routes import AutanticationRoute
+from ServerUtils.Routes import StaticsRoute
 from ServerUtils.queries import initialize_tables
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
@@ -15,6 +16,7 @@ app = FastAPI()
 app.include_router(AutanticationRoute.router)
 app.include_router(JobsRoute.router)
 app.include_router(StatusRouteAndStages.router)
+app.include_router(StaticsRoute.router)
 app.include_router(CandidatesRoute.router)
 
 
