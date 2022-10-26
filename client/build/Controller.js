@@ -36,21 +36,21 @@ class Controller {
 const controller = new Controller();
 $("body").on("click", ".dropdown-item", function () {
     console.log(this);
-    if ($(this).hasClass('pos')) {
+    if ($(this).hasClass("pos")) {
         controller.filters.position = this.innerHTML;
         console.log(controller.filters.position);
     }
-    if ($(this).hasClass('stat')) {
+    if ($(this).hasClass("stat")) {
         controller.filters.status = this.innerHTML;
-        console.log('2');
+        console.log("2");
     }
-    if ($(this).hasClass('stage')) {
+    if ($(this).hasClass("stage")) {
         controller.filters.stage = this.innerHTML;
-        console.log('3');
+        console.log("3");
     }
-    if ($(this).hasClass('gender')) {
+    if ($(this).hasClass("gender")) {
         controller.filters.gender = this.innerHTML;
-        console.log('4');
+        console.log("4");
     }
 });
 $("body").on('click', ".update-btn", function () {
@@ -67,12 +67,12 @@ $('#pos-btn').on('click', function () {
         controller.renderer.renderJobsDropDown(jobs);
     });
 });
-$('#search-btn').on('click', function () {
+$("#search-btn").on("click", function () {
     return __awaiter(this, void 0, void 0, function* () {
         yield controller.loadCandidates();
     });
 });
-$('#clear-filters-btn').on('click', function () {
+$("#clear-filters-btn").on("click", function () {
     controller.filters.empty();
     controller.loadCandidates();
 });
