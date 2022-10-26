@@ -12,13 +12,13 @@ def create_candidates(candidates):
 
 
 def create_candidate(candidate):
-    new_candidate = (PersonJobs.PersonJobs(candidate["c_first_name"], candidate["c_last_name"],
-                                           candidate["c_mail"],
-                                           candidate["c_cv"],
+    new_candidate = (PersonJobs.PersonJobs(candidate["c_first_name"], candidate["c_last_name"],candidate["c_mail"],candidate["c_cv"],
                                            candidate["job_name"],
+                                           candidate["oj_id"],
                                            candidate["status"],
                                            candidate["final_stage"],
-                                           candidate["c_gender"]))
+                                           candidate["c_gender"])
+                                           )
     return new_candidate
 
 
