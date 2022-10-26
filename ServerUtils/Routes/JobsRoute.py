@@ -11,7 +11,7 @@ router = APIRouter(
 
 
 @router.get('/')
-def get_open_jobs():
+async def get_open_jobs():
     open_jobs=JobsQueries.get_open_jobs();
     return open_jobs;
        
@@ -25,7 +25,7 @@ async def add_job (request: Request):
     
     
 @router.delete('/')
-def delete_job(job_id):   
+async def delete_job(job_id):   
     delete_job = JobsQueries.delete_job(job_id);
     return delete_job;
     

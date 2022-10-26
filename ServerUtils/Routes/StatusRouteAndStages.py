@@ -11,14 +11,15 @@ router = APIRouter(
 
 
 @router.put('/status')
-def update_the_status_of_candidate_job(candidate_id, job_id):
+async def update_the_status_of_candidate_job(candidate_id, job_id):
     update_status = StatusQueries.update_status_of_job_of_candidate(
         candidate_id, job_id)
     return update_status
 
 
+   
 @router.put('/stages')
-def update_the_stage_of_candidate_job(candidate_id, job_id, stages_name):
+async def update_the_stage_of_candidate_job(candidate_id, job_id, stages_name):
     update_stage = StageQueries.update_the_final_stage(
         candidate_id, job_id, stages_name)
     return update_stage
