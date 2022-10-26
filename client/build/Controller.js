@@ -96,3 +96,8 @@ $('#toDashboard').on('click', function () {
     $('#clear-filters-btn').prop('disabled', true);
     controller.loadStatistics();
 });
+$("#table-container").on("click", ".close-position", function () {
+    const id = $(this).data("id");
+    controller.Model.deleteJob(id);
+    controller.loadJobsTable();
+});
