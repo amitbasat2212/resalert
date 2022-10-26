@@ -1,5 +1,5 @@
 class PersonJobs:
-    def __init__(self, f_name, l_name,job,status,stage,cv,mail,Gender):
+    def __init__(self, f_name, l_name,mail,cv,job,status,stage,Gender):
         self.first_name = f_name
         self.last_name = l_name        
         self.mail = mail

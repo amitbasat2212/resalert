@@ -1,4 +1,3 @@
-
 from ServerUtils.Routes import StatusRouteAndStages
 from ServerUtils.Routes import CandidatesRoute
 from ServerUtils.Routes import JobsRoute
@@ -24,7 +23,7 @@ app.mount("/client", StaticFiles(directory="client"), name="client")
 
 @app.get('/')
 def be():
-    return FileResponse('client/login.html')
+    return FileResponse('client/index.html')
 
 
 @app.get('/create')
