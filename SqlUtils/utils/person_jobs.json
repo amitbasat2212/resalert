@@ -8,6 +8,10 @@
             "dep_name":"Finance"
         },{
             "dep_name":"HR"
+        },{
+            "dep_name":"QA"
+        },{
+            "dep_name":"Management Board"
         }],
         "final_stage":[{
             "fs_name":"Pending"
@@ -81,16 +85,28 @@
             "c_cv":"/rami.pdf",	 
             "c_gender":"m"
         },{
+            "c_first_name":"Dekel",	 
+            "c_last_name":"Levy",	 
+	        "c_mail":"dekellevy@gmail.com",	 
+            "c_cv":"/dekellevy.pdf",	 
+            "c_gender":"m"
+        },{
             "c_first_name":"Coral",	 
             "c_last_name":"Kanya",	 
 	        "c_mail":"coralkanya@gmail.com",	 
             "c_cv":"/coralkanya.pdf",	 
             "c_gender":"f"
         },{
-            "c_first_name":"Amir",	 
-            "c_last_name":"Catlover",	 
-	        "c_mail":"amircatlober@gmail.com",	 
-            "c_cv":"/amircatlober.pdf",	 
+            "c_first_name":"Ameer",	 
+            "c_last_name":"Jamal",	 
+	        "c_mail":"ameerjamal@gmail.com",	 
+            "c_cv":"/catlover.pdf",	 
+            "c_gender":"m"
+        },{
+            "c_first_name":"Shalev",	 
+            "c_last_name":"Sharf",	 
+	        "c_mail":"shalevsharf@gmail.com",	 
+            "c_cv":"/shalevsharf.pdf",	 
             "c_gender":"m"
         }],
          "open_jobs":[{
@@ -117,12 +133,30 @@
             "oj_id": "126",	 
             "job_name":"CSS developer",
             "department_name":"R&D"
+         },{
+            "oj_id": "127",	 
+            "job_name":"Beginning QA Programmer",
+            "department_name":"QA"
+         },{
+            "oj_id": "128",	 
+            "job_name":"Global Debugging&Cats manager",
+            "department_name":"Management Board"
          }],
          "person_jobs":[{
             "candidante_id":"edengil@gmail.com",	 
             "job_id":"125",
             "status":"Assignment",
             "finsl_stage":"On process"
+         },{
+            "candidante_id":"dekellevy@gmail.com",	 
+            "job_id":"123",
+            "status":"HR interview",
+            "finsl_stage":"On process"
+         },{
+            "candidante_id":"rami@gmail.com",	 
+            "job_id":"122",
+            "status":"Recommendation",
+            "finsl_stage":"Rejected"
          },{
             "candidante_id":"orlevy@gmail.com",	 
             "job_id":"121",
@@ -133,6 +167,21 @@
             "job_id":"126",
             "status":"Contract offer",
             "finsl_stage":"Hired"
+         },{
+            "candidante_id":"shalevsharf@gmail.com",	 
+            "job_id":"127",
+            "status":"Assignment",
+            "finsl_stage":"On process"
+         },{
+            "candidante_id":"ameerjamal@gmail.com",	 
+            "job_id":"128",
+            "status":"Contract offer",
+            "finsl_stage":"Hired"
+         },{
+            "candidante_id":"israelisraeli@gmail.com",	 
+            "job_id":"124",
+            "status":"CV unread",
+            "finsl_stage":"Pending"
          }]
 
     }
