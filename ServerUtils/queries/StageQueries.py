@@ -2,6 +2,7 @@ from ServerUtils.TypesOfObject import FinalStage
 from ServerUtils.DataBaseConnection import DataBaseManager;
 
 
+
 def update_the_final_stage(candidate_email,job_id,stage_name):
     try:
         with DataBaseManager.connection.cursor() as cursor:            

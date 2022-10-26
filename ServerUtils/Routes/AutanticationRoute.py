@@ -4,13 +4,9 @@ from fastapi.responses import FileResponse
 
 
 
-router = APIRouter(
-    prefix="/autantiction",
-    tags=["autantiction"]
-)
+router = APIRouter()
 
-
-@router.get('/')
+@router.get('/login')
 def login(userName=None,password=None):
     return FileResponse('client/index.html')
 
