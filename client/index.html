@@ -45,7 +45,7 @@
 
   <body id="page-top">
     <script id="candidates-template" type="text/x-handlebars-template">
-      <thead class="bg-light">
+      <thead class="text-primary bg-light">
         <tr>
           <th>Name</th>
           <th>Position</th>
@@ -57,36 +57,55 @@
       </thead>
       <tbody>
         {{#each candidate}}
-        <tr>
+          <tr>
             <td>
-                <div class="ms-3">
-                  <p class="name fw-bold mb-1">{{f_name}} {{l_name}}</p>
-                  <p class="mail text-muted mb-0">{{email}}</p>
-                </div>
+              <div class="mail-name">
+                <p class="name fw-bold mb-1">{{first_name}} {{last_name}}</p>
+                <p class="mail text-muted mb-0">{{mail}}</p>
               </div>
             </td>
             <td class="job">
               {{job}}
             </td>
             <td class="status">
-                {{status}}
+              {{status}}
             </td>
             <td>
-                {{#ifEquals stage "Pending" }}
-                <span class="stage badge badge-warning rounded-pill d-inline">{{stage}}</span>
-                {{/if}}
-                {{#ifEquals stage "On proccess" }}
-                <span class="stage badge badge-primary rounded-pill d-inline">{{stage}}</span>
-                {{/if}}
-                {{#ifEquals stage "Rejected" }}
-                <span class="stage badge badge-danger rounded-pill d-inline">{{stage}}</span>
-                {{/if}}
-                {{#ifEquals stage "Hired" }}
-                <span class="stage badge badge-success rounded-pill d-inline">{{stage}}</span>
-                {{/if}}
+              {{#ifEquals stage "Pending"}}
+                <span
+                  class="stage badge badge-warning rounded-pill d-inline"
+                >{{stage}}</span>
+              {{/ifEquals}}
+
+              {{#ifEquals stage "On process"}}
+                <span
+                  class="stage badge badge-primary rounded-pill d-inline"
+                >{{stage}}</span>
+              {{/ifEquals}}
+
+              {{#ifEquals stage "Rejected"}}
+                <span
+                  class="stage badge badge-danger rounded-pill d-inline"
+                >{{stage}}</span>
+              {{/ifEquals}}
+
+              {{#ifEquals stage "Hired"}}
+                <span
+                  class="stage badge badge-success rounded-pill d-inline"
+                >{{stage}}</span>
+              {{/ifEquals}}
             </td>
+            <td class="gender">
+              {{Gender}}
+            </td>
+
             <td>
-              <button type="button" class="update-btn btn btn-link btn-sm btn-rounded">
+              <button
+                type="button"
+                class="update-btn btn btn-link btn-sm btn-rounded"
+                data-job="{{job_id}}"
+                data-cand="{{mail}}"
+              >
                 Update
               </button>
             </td>
@@ -111,7 +130,7 @@
               {{id}}
             </td>
             <td class="job-name">
-              {name}}
+              {{name}}
             </td>
             <td class="job-dep">
               {{dep_name}}
@@ -288,7 +307,7 @@
                   >
                   <img
                     class="img-profile rounded-circle"
-                    src="CyberArk_logo.png"
+                    src="client/CyberArk_logo.png"
                   />
                 </a>
 
@@ -331,7 +350,7 @@
               class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
             >
               <div class="input-group" style="z-index: 1">
-                <div class="dropdown">
+                <div class="dropdown mr-1">
                   <button
                     id="pos-btn"
                     class="btn btn-info dropdown-toggle"
@@ -344,7 +363,7 @@
                   <ul class="dropdown-menu" id="drop-pos-container"></ul>
                 </div>
 
-                <div class="dropdown">
+                <div class="dropdown mr-1">
                   <button
                     class="btn btn-info dropdown-toggle"
                     type="button"
@@ -355,7 +374,7 @@
                   </button>
                   <ul class="dropdown-menu">
                     <li>
-                      <a class="dropdown-item stat" href="#">CV recieved</a>
+                      <a class="dropdown-item stat" href="#">CV unread</a>
                     </li>
                     <li>
                       <a class="dropdown-item stat" href="#">CV checked</a>
@@ -381,15 +400,15 @@
                       <a class="dropdown-item stat" href="#">SM interview</a>
                     </li>
                     <li>
-                      <a class="dropdown-item stat" href="#">Recommendations</a>
+                      <a class="dropdown-item stat" href="#">Recommendation</a>
                     </li>
                     <li>
-                      <a class="dropdown-item stat" href="#">Contrect offer</a>
+                      <a class="dropdown-item stat" href="#">Contract offer</a>
                     </li>
                   </ul>
                 </div>
 
-                <div class="dropdown">
+                <div class="dropdown mr-1">
                   <button
                     class="btn btn-info dropdown-toggle"
                     type="button"
@@ -410,7 +429,7 @@
                   </ul>
                 </div>
 
-                <div class="dropdown">
+                <div class="dropdown mr-1">
                   <button
                     class="btn btn-info dropdown-toggle"
                     type="button"
@@ -420,11 +439,11 @@
                     Gender
                   </button>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item gender" href="#">M</a></li>
-                    <li><a class="dropdown-item gender" href="#">F</a></li>
+                    <li><a class="dropdown-item gender" href="#">m</a></li>
+                    <li><a class="dropdown-item gender" href="#">f</a></li>
                   </ul>
                 </div>
-                <div>
+                <div class="mr-1">
                   <button
                     id="clear-filters-btn"
                     class="btn btn-primary"
@@ -448,9 +467,10 @@
                 </h6>
               </div>
               <div class="card-body">
-                <div class="table-responsive">
+                <div class="table-responsive text-center">
                   <table
-                    class="table-container align-middle mb-0 bg-white"
+                    id="table-container"
+                    class="align-middle mb-0 bg-white"
                   ></table>
                 </div>
               </div>
