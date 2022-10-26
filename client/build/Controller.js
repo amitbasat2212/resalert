@@ -30,44 +30,49 @@ class Controller {
 const controller = new Controller();
 $("body").on("click", ".dropdown-item", function () {
     console.log(this);
-    if ($(this).hasClass('pos')) {
-        controller.filters.position = $(this).data('id');
-        console.log('1');
+    if ($(this).hasClass("pos")) {
+        controller.filters.position = $(this).data("id");
+        console.log("1");
     }
-    if ($(this).hasClass('stat')) {
+    if ($(this).hasClass("stat")) {
         controller.filters.status = this.innerHTML;
-        console.log('2');
+        console.log("2");
     }
-    if ($(this).hasClass('stage')) {
+    if ($(this).hasClass("stage")) {
         controller.filters.stage = this.innerHTML;
-        console.log('3');
+        console.log("3");
     }
-    if ($(this).hasClass('gender')) {
+    if ($(this).hasClass("gender")) {
         controller.filters.gender = this.innerHTML;
-        console.log('4');
+        console.log("4");
     }
 });
-$('#pos-btn').on('click', function () {
+$("#pos-btn").on("click", function () {
     return __awaiter(this, void 0, void 0, function* () {
         const jobs = yield controller.Model.getJobs();
         controller.renderer.renderJobsDropDown(jobs);
     });
 });
-$('#search-btn').on('click', function () {
+$("#search-btn").on("click", function () {
     return __awaiter(this, void 0, void 0, function* () {
         yield controller.loadCandidates();
     });
 });
-$('#clear-filters-btn').on('click', function () {
+$("#clear-filters-btn").on("click", function () {
     controller.filters.empty();
     controller.loadCandidates();
 });
-$('#toJobs').on('click', function () {
-    $('#table-name').text('Jobs');
+$("#toJobs").on("click", function () {
+    $("#table-name").text("Jobs");
     controller.loadJobsTable();
 });
-$('#toCandidates').on('click', function () {
+$("#toCandidates").on("click", function () {
     controller.filters.empty();
-    $('#table-name').text('Candidates');
+    $("#table-name").text("Candidates");
     controller.loadCandidates();
+});
+$("#table-container").on("click", ".close-position", function () {
+    const id = $(this).data("id");
+    controller.Model.deleteJob(id);
+    controller.loadJobsTable();
 });

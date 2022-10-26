@@ -36,4 +36,15 @@ class Model {
             return yield $.post(`/jobs`, JSON.stringify(newJob));
         });
     }
+    deleteJob(job_id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield $.ajax({
+                url: `/jobs/?job_id=${job_id}`,
+                type: "DELETE",
+                dataType: "json",
+                contentType: "application/json",
+            });
+        });
+    }
 }
+// `/jobs`, JSON.stringify(job_id));
