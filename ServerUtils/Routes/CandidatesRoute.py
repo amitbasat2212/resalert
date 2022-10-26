@@ -10,9 +10,17 @@ router = APIRouter(
 
 
 @router.get('/')
-def get_candidates_of_jobs():
-    candidates=CandidateQueries.get_candidates_of_all_jobs();
-    return candidates;
+def get_candidates_of_jobs(job_id ="", status ="", stage ="", gender =""):
+    # if job_id is not "":
+    #     candidates1=CandidateQueries.get_candidates_of_all_jobs();
+    # if status is not "":
+    #     candidates2 = 
+    # if stage is not "":  
+
+    # if gender is not "":     
+   
+    # return candidates;
+    pass;
 
 
 @router.get('/{job_id}')

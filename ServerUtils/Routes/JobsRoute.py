@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter,Request
 
 from ServerUtils.queries import JobsQueries;
 
@@ -17,7 +17,8 @@ def get_open_jobs():
        
 
 @router.post('/')
-def add_job (job):
+async def add_job (request: Request):
+    job =await request.json()
     new_job = JobsQueries.add_job(job);
     return new_job;
 
