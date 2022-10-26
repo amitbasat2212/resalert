@@ -13,6 +13,11 @@ class Controller {
         const jobsToRender: Job[] = await this.Model.getJobs()
         this.renderer.renderJobs(jobsToRender)
     }
+
+    async loadStatistics(){
+        // const statisticsToRender: Job[] = await this.Model.getJobs()
+        this.renderer.renderStatistics()
+    }
 } 
 
 const controller = new Controller() 
@@ -37,6 +42,13 @@ $("body").on("click", ".dropdown-item", function(){
     }
 })
 
+$("body").on('click', "update-btn", function(){
+    const jobId = $(this).data('job')
+    const candidateId = $(this).data('cand')
+    controller.Model.
+
+})
+
 $('#pos-btn').on('click', async function(){
     const jobs: Job[] = await controller.Model.getJobs()
     controller.renderer.renderJobsDropDown(jobs)
@@ -54,10 +66,26 @@ $('#clear-filters-btn').on('click', function(){
 $('#toJobs').on('click', function(){
     $('#table-name').text('Jobs')
     controller.loadJobsTable()
+    $('#search-btn').prop('disabled', true)
+    $('#clear-filters-btn').prop('disabled', true)
+
 })
 
 $('#toCandidates').on('click', function(){
     controller.filters.empty()
     $('#table-name').text('Candidates')
+    $('#search-btn').prop('disabled', false)
+    $('#clear-filters-btn').prop('disabled', false)
     controller.loadCandidates()
+   
+})
+
+
+$('#toDashboard').on('click', function(){
+    controller.filters.empty()
+    $('#table-name').text('Recruiting Statistics')
+    $('#search-btn').prop('disabled', true)
+    $('#clear-filters-btn').prop('disabled', true)
+    controller.loadStatistics()
+   
 })

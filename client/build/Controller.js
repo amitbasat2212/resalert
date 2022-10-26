@@ -26,6 +26,12 @@ class Controller {
             this.renderer.renderJobs(jobsToRender);
         });
     }
+    loadStatistics() {
+        return __awaiter(this, void 0, void 0, function* () {
+            // const statisticsToRender: Job[] = await this.Model.getJobs()
+            this.renderer.renderStatistics();
+        });
+    }
 }
 const controller = new Controller();
 $("body").on("click", ".dropdown-item", function () {
@@ -47,6 +53,12 @@ $("body").on("click", ".dropdown-item", function () {
         console.log('4');
     }
 });
+$("body").on('click', "update-btn", function () {
+    const jobId = $(this).data('job');
+    const candidateId = $(this).data('cand');
+    controller.Model.
+    ;
+});
 $('#pos-btn').on('click', function () {
     return __awaiter(this, void 0, void 0, function* () {
         const jobs = yield controller.Model.getJobs();
@@ -65,9 +77,20 @@ $('#clear-filters-btn').on('click', function () {
 $('#toJobs').on('click', function () {
     $('#table-name').text('Jobs');
     controller.loadJobsTable();
+    $('#search-btn').prop('disabled', true);
+    $('#clear-filters-btn').prop('disabled', true);
 });
 $('#toCandidates').on('click', function () {
     controller.filters.empty();
     $('#table-name').text('Candidates');
+    $('#search-btn').prop('disabled', false);
+    $('#clear-filters-btn').prop('disabled', false);
     controller.loadCandidates();
+});
+$('#toDashboard').on('click', function () {
+    controller.filters.empty();
+    $('#table-name').text('Recruiting Statistics');
+    $('#search-btn').prop('disabled', true);
+    $('#clear-filters-btn').prop('disabled', true);
+    controller.loadStatistics();
 });

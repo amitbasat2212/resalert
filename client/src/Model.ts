@@ -19,7 +19,14 @@ class Model{
     async addNewCandidate(newCandidate: Candidate ): Promise<Candidate>{
         return await $.post(`/candidates`,JSON.stringify(newCandidate))
      }
-
+   
+     updateStatus(jobId:string, candidateId:string){
+      $.ajax({
+         url: `/status?job_id=${jobId}&candidate_id=${candidateId}`,
+         type: 'PUT'
+       });
+         
+     }
      async addNewJob(newJob: Job ): Promise<Job>{
         return await $.post(`/jobs`,JSON.stringify(newJob))
      }

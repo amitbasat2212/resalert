@@ -31,6 +31,12 @@ class Model {
             return yield $.post(`/candidates`, JSON.stringify(newCandidate));
         });
     }
+    updateStatus(jobId, candidateId) {
+        $.ajax({
+            url: `/status?job_id=${jobId}&candidate_id=${candidateId}`,
+            type: 'PUT'
+        });
+    }
     addNewJob(newJob) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield $.post(`/jobs`, JSON.stringify(newJob));

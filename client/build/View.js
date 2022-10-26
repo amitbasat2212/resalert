@@ -5,6 +5,9 @@ class Renderer {
         this.jobsTemplate = Handlebars.compile($("#jobs-template").html());
         this.jobsDropdownTemplate = Handlebars.compile($("#jobsDropdown-template").html());
     }
+    renderStatistics() {
+        this.emptyAll();
+    }
     renderJobs(jobsData) {
         this.emptyAll();
         const inject = this.jobsTemplate({ "job": jobsData });
