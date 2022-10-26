@@ -16,5 +16,8 @@ def get_group_per_gender():
 
 @router.get('/dep')
 def get_group_per_gender():
-    numers_per_gender=StaticQueries.get_numberes_per_gender()
+    numers_per_gender=StaticQueries.get_emploes_per_department()
     return numers_per_gender;
+
+
+
