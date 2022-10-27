@@ -106,6 +106,7 @@ $("#table-container").on("click", ".add-new-job", function () {
     .closest(".add-new-job-table")
     .find(".form-department")
     .val();
+
   controller.Model.addNewJob(Number(id), String(position), String(department));
   console.log(department);
   controller.loadJobsTable();
