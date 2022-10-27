@@ -46,7 +46,7 @@ def create_person(candidate_user):
 
 def add_candidate_to_a_job(candidate_mail, job_id):
     status = "CV unread"
-    stage = "pending"
+    stage = "Pending"
     try:
         with DataBaseManager.connection.cursor() as cursor:
             insert_candidate_user = f"INSERT IGNORE INTO person_jobs values('{candidate_mail}','{job_id}','{status}','{stage}')"

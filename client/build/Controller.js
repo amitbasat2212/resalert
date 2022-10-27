@@ -59,7 +59,6 @@ $("body").on('click', ".update-btn", function () {
         const jobId = $(this).data('job');
         const candidateId = $(this).data('cand');
         const currentStage = $(this).closest('.candidate').find('.stage').text();
-        const candidateName = $(this).closest('.candidate').find('.name').text();
         if (currentStage === 'Rejected' || currentStage === 'Hired') {
             return;
         }

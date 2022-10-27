@@ -27,7 +27,6 @@ class Controller {
 } 
 
 const controller = new Controller();
-
 $("body").on("click", ".dropdown-item", function () {
   console.log(this);
   if ($(this).hasClass("pos")) {
@@ -49,10 +48,9 @@ $("body").on("click", ".dropdown-item", function () {
 });
 
 $("body").on('click', ".update-btn", async function(){
-    const jobId = $(this).data('job')
-    const candidateId = $(this).data('cand')
-    const currentStage: string = $(this).closest('.candidate').find('.stage').text()
-  const candidateName: string = $(this).closest('.candidate').find('.name').text()
+  const jobId = $(this).data('job')
+  const candidateId = $(this).data('cand')
+  const currentStage: string = $(this).closest('.candidate').find('.stage').text()
 
   if (currentStage === 'Rejected' || currentStage === 'Hired' ) {
     return;

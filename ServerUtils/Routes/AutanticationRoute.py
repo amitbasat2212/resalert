@@ -8,9 +8,14 @@ router = APIRouter()
 
 
 @router.post('/register')
-async def login(fname: str = Form(), lname: str = Form(), email: str = Form(), cv: str = Form(), gender: str = Form(), ):
+async def login(fname: str = Form(), lname: str = Form(), email: str = Form(), cv: str = Form(), gender: str = Form()):
     candidate = Candidate(fname, lname, email, cv, gender)
     CandidateQueries.add_candidate_user(candidate)
+
+
+@router.post('/apply')
+async def login(email: str = Form(), jobId: str = Form()):
+    CandidateQueries.add_candidate_to_a_job(email, jobId)
 
 
 @router.get('/login')

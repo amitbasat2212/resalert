@@ -50,13 +50,13 @@
       <table class="align-middle mb-0 bg-white">
         <thead class="text-primary bg-light">
           <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Status</th>
-            <th>Stage</th>
-            <th>Gender</th>
-            <th>StepUp</th>
-            <th class="text-danger">decision</th>
+            <th>name</th>
+            <th>position</th>
+            <th>status</th>
+            <th>stage</th>
+            <th>gender</th>
+            <th>stepUp</th>
+            <th class="text-danger px-1">decision</th>
 
           </tr>
         </thead>
@@ -104,7 +104,7 @@
                 {{Gender}}
               </td>
 
-              <td>
+              <td class="px-1">
                 <button
                   type="button"
                   class="update-btn btn btn-sm btn-rounded badge badge-secondary rounded-pill d-inline"
@@ -114,7 +114,7 @@
                   Update
                 </button>
               </td>
-              <td>
+              <td class="px-1">
                 <div class="decision">
                   <button
                     type="button"
@@ -165,7 +165,7 @@
             />
           </div>
           <div class="col">
-            <button type="submit" class="btn btn-primary mb-2 add-new-job">Add
+            <button type="button" class="btn btn-primary mb-2 add-new-job">Add
               new job</button>
           </div>
         </div>
@@ -226,7 +226,7 @@
         <!-- Sidebar - Brand -->
         <a
           class="sidebar-brand d-flex align-items-center justify-content-center"
-          href="index.html"
+          href="/"
         >
           <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
@@ -317,7 +317,7 @@
           >
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Login Screens:</h6>
-              <a class="collapse-item" href="login.html">Login</a>
+              <a class="collapse-item" href="client/login.html">Login</a>
             </div>
           </div>
         </li>
@@ -525,10 +525,9 @@
             <!-- DataTables -->
             <div class="card shadow mb-4">
               <div class="card-header py-3">
-                <h6
-                  id="table-name"
-                  class="m-0 font-weight-bold text-primary"
-                ></h6>
+                <h6 id="table-name" class="m-0 font-weight-bold text-primary">
+                  Welcome :)
+                </h6>
               </div>
               <div class="card-body">
                 <div
@@ -584,7 +583,7 @@
             >
               Cancel
             </button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <a class="btn btn-primary" href="client/login.html">Logout</a>
           </div>
         </div>
       </div>
