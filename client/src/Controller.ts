@@ -18,11 +18,13 @@ class Controller {
     this.renderer.renderJobs(jobsToRender);
   }
 
-  async loadStatistics() {
-    // const statisticsToRender: Job[] = await this.Model.getJobs()
-    this.renderer.renderStatistics();
-  }
-}
+    async loadStatistics(){
+        this.renderer.renderStatics()
+        await this.Model.staticsForGender()
+        await this.Model.staticsForEmploeyPerDeps()
+        
+    }
+} 
 
 const controller = new Controller();
 
