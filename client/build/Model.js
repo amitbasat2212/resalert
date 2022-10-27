@@ -43,8 +43,13 @@ class Model {
             type: 'PUT'
         });
     }
-    addNewJob(newJob) {
+    addNewJob(id, name, dep_name) {
         return __awaiter(this, void 0, void 0, function* () {
+            const newJob = {
+                oj_id: id,
+                job_name: name,
+                department_name: dep_name,
+            };
             return yield $.post(`/jobs`, JSON.stringify(newJob));
         });
     }
