@@ -5,12 +5,19 @@ class Renderer {
         this.jobsTemplate = Handlebars.compile($("#jobs-template").html());
         this.jobsDropdownTemplate = Handlebars.compile($("#jobsDropdown-template").html());
     }
-    renderStatistics() {
-        this.emptyAll();
-    }
     renderJobs(jobsData) {
         this.emptyAll();
         const inject = this.jobsTemplate({ "job": jobsData });
+        $("#table-container").append(inject);
+    }
+    renderStatics() {
+        this.emptyAll();
+        const inject = `<canvas id="pie-chart" width="800" height="450"></canvas>
+        <canvas id="bar-chart" width="800" height="450"></canvas>
+    
+    <script>var exports = {};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
+   `;
         $("#table-container").append(inject);
     }
     renderJobsDropDown(jobsData) {

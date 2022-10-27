@@ -52,4 +52,30 @@ class Model {
             });
         });
     }
+    staticsForGender() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const graphs = new graph();
+            const gender = yield $.get(`/statics/Gender`);
+            const labels_gender = [];
+            const values_gender = [];
+            for (let i = 0; i < gender.length; i++) {
+                labels_gender[i] = gender[i]["c_gender"];
+                values_gender[i] = gender[i]["num_candidate"];
+            }
+            graphs.create_pie_chart(labels_gender, values_gender);
+        });
+    }
+    staticsForEmploeyPerDeps() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const graphs = new graph();
+            const personperdep = yield $.get(`/statics/dep`);
+            const labels_dep = [];
+            const values_dep = [];
+            for (let i = 0; i < personperdep.length; i++) {
+                labels_dep[i] = personperdep[i]["dep_name"];
+                values_dep[i] = personperdep[i]["member"];
+            }
+            graphs.create_bar_chart(labels_dep, values_dep);
+        });
+    }
 }

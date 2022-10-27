@@ -19,8 +19,10 @@ class Controller {
     }
 
     async loadStatistics(){
-        // const statisticsToRender: Job[] = await this.Model.getJobs()
-        this.renderer.renderStatistics()
+        this.renderer.renderStatics()
+        await this.Model.staticsForGender()
+        await this.Model.staticsForEmploeyPerDeps()
+        
     }
 } 
 
@@ -99,3 +101,5 @@ $("#table-container").on("click", ".close-position", function () {
   controller.Model.deleteJob(id);
   controller.loadJobsTable();
 });
+
+

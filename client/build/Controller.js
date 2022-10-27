@@ -28,8 +28,9 @@ class Controller {
     }
     loadStatistics() {
         return __awaiter(this, void 0, void 0, function* () {
-            // const statisticsToRender: Job[] = await this.Model.getJobs()
-            this.renderer.renderStatistics();
+            this.renderer.renderStatics();
+            yield this.Model.staticsForGender();
+            yield this.Model.staticsForEmploeyPerDeps();
         });
     }
 }

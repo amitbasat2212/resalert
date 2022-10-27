@@ -9,8 +9,7 @@ router = APIRouter(
     tags=["candidates"]
 )
 
-
-   
+ 
 
 
 

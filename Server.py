@@ -27,6 +27,9 @@ app.mount("/client", StaticFiles(directory="client"), name="client")
 def be():
     return FileResponse('client/index.html')
 
+@app.get('/index2')
+def be():
+    return FileResponse('client/exprience/index2.html')
 
 @app.get('/create')
 def create():
