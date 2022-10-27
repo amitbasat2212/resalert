@@ -43,26 +43,6 @@ class Model {
             type: 'PUT'
         });
     }
-    addNewJob(id, name, dep_name) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const newJob = {
-                oj_id: id,
-                job_name: name,
-                department_name: dep_name,
-            };
-            return yield $.post(`/jobs`, JSON.stringify(newJob));
-        });
-    }
-    deleteJob(job_id) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return yield $.ajax({
-                url: `/jobs/?job_id=${job_id}`,
-                type: "DELETE",
-                dataType: "json",
-                contentType: "application/json",
-            });
-        });
-    }
     staticsForGender() {
         return __awaiter(this, void 0, void 0, function* () {
             const graphs = new graph();
@@ -87,6 +67,26 @@ class Model {
                 values_dep[i] = personperdep[i]["member"];
             }
             graphs.create_bar_chart(labels_dep, values_dep);
+        });
+    }
+    addNewJob(id, name, dep_name) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const newJob = {
+                oj_id: id,
+                job_name: name,
+                department_name: dep_name,
+            };
+            return yield $.post(`/jobs`, JSON.stringify(newJob));
+        });
+    }
+    deleteJob(job_id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield $.ajax({
+                url: `/jobs/?job_id=${job_id}`,
+                type: "DELETE",
+                dataType: "json",
+                contentType: "application/json",
+            });
         });
     }
 }
