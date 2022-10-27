@@ -14,7 +14,7 @@ class Model {
     gender: string
   ): Promise<Candidate[]> {
     Model.currentCandidates = await $.get(
-      `/candidates?job=${jobName}&status=${status}&stage=${stage}&gender=${gender}`
+      `/candidates?job_name=${jobName}&status=${status}&stage=${stage}&gender=${gender}`
     );
     return Model.currentCandidates;
   }
@@ -24,28 +24,24 @@ class Model {
     return Model.currentJobs;
   }
 
-   async addNewCandidate(newCandidate: Candidate ): Promise<Candidate>{
-      return await $.post(`/candidates`,JSON.stringify(newCandidate))
-   }
+  async addNewCandidate(newCandidate: Candidate): Promise<Candidate> {
+    return await $.post(`/candidates`, JSON.stringify(newCandidate));
+  }
 
-   updateStatus(jobId:string, candidateId:string){
-   $.ajax({
+  updateStatus(jobId: string, candidateId: string) {
+    $.ajax({
       url: `/personjobs/status?job_id=${jobId}&candidate_id=${candidateId}`,
       type: 'PUT'
       });
       
    }
-   async addNewJob(newJob: Job ): Promise<Job>{
-      return await $.post(`/jobs`,JSON.stringify(newJob))
-   }
 
-   async deleteJob(job_id: number) {
-      return await $.ajax({
-        url: `/jobs/?job_id=${job_id}`,
-        type: "DELETE",
-        dataType: "json",
-        contentType: "application/json",
-      });
+   updateStage(jobId:string, candidateId:string, stage: string){
+    $.ajax({
+       url: `/personjobs/stages?job_id=${jobId}&candidate_id=${candidateId}&stage=${stage}`,
+       type: 'PUT'
+       });
+       
     }
    
 
@@ -77,5 +73,25 @@ class Model {
    
     graphs.create_bar_chart(labels_dep,values_dep)
    } 
+
+
+  async addNewJob(id: number, name: string, dep_name: string) {
+    const newJob = {
+      oj_id: id,
+      job_name: name,
+      department_name: dep_name,
+    };
+
+    return await $.post(`/jobs`, JSON.stringify(newJob));
+  }
+
+  async deleteJob(job_id: number) {
+    return await $.ajax({
+      url: `/jobs/?job_id=${job_id}`,
+      type: "DELETE",
+      dataType: "json",
+      contentType: "application/json",
+    });
+  }
 }
 
