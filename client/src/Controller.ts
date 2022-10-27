@@ -56,10 +56,13 @@ $("body").on('click', ".update-btn", async function(){
 
   if (currentStage === 'Rejected' || currentStage === 'Hired' ) {
     return;
-  }
+  } 
   
-    await controller.Model.updateStatus(jobId, candidateId)
-    controller.loadCandidates()
+  await controller.Model.updateStatus(jobId, candidateId)
+  if (currentStage === 'Pending' ) {
+    await controller.Model.updateStage(jobId, candidateId, 'On process')
+  }
+  controller.loadCandidates()
 })
 
 $("body").on('click', ".hire-btn", async function(){

@@ -64,6 +64,9 @@ $("body").on('click', ".update-btn", function () {
             return;
         }
         yield controller.Model.updateStatus(jobId, candidateId);
+        if (currentStage === 'Pending') {
+            yield controller.Model.updateStage(jobId, candidateId, 'On process');
+        }
         controller.loadCandidates();
     });
 });
