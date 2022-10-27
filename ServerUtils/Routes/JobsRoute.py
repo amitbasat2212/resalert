@@ -28,4 +28,6 @@ async def add_job (request: Request):
 async def delete_job(job_id):   
     delete_job = JobsQueries.delete_job(job_id);
     return delete_job;
+
+
     

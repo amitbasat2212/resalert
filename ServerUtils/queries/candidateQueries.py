@@ -12,13 +12,13 @@ def create_candidates(candidates):
 
 
 def create_candidate(candidate):
-    new_candidate = (PersonJobs.PersonJobs(candidate["c_first_name"], candidate["c_last_name"],candidate["c_mail"],candidate["c_cv"],
+    new_candidate = (PersonJobs.PersonJobs(candidate["c_first_name"], candidate["c_last_name"], candidate["c_mail"], candidate["c_cv"],
                                            candidate["job_name"],
                                            candidate["oj_id"],
                                            candidate["status"],
                                            candidate["final_stage"],
                                            candidate["c_gender"])
-                                           )
+                     )
     return new_candidate
 
 
@@ -44,32 +44,26 @@ def create_person(candidate_user):
     return new_candidate_person
 
 
-
-
-def add_candidate_to_a_job(candidate_mail,job_id):
-    status = "CV unread";
-    stage="pending"
+def add_candidate_to_a_job(candidate_mail, job_id):
+    status = "CV unread"
+    stage = "pending"
     try:
         with DataBaseManager.connection.cursor() as cursor:
             insert_candidate_user = f"INSERT IGNORE INTO person_jobs values('{candidate_mail}','{job_id}','{status}','{stage}')"
             cursor.execute(insert_candidate_user)
             DataBaseManager.connection.commit()
-            return {"candidate_mail":candidate_mail,"job_id":job_id,"status":status,"stage":stage}
+            return {"candidate_mail": candidate_mail, "job_id": job_id, "status": status, "stage": stage}
     except TypeError as e:
         return e
-
-
 
 
 def add_candidate_user(candidate):
     try:
         with DataBaseManager.connection.cursor() as cursor:
-            insert_candidate_user = f"INSERT IGNORE INTO candidates values('{candidate['c_first_name']}','{candidate['c_last_name']}','{candidate['c_mail']}','{candidate['c_cv']}','{candidate['c_gender']}')"
+            insert_candidate_user = f"INSERT IGNORE INTO candidates values('{candidate.f_name}','{candidate.l_name}','{candidate.mail}','{candidate.cv}','{candidate.Gender}')"
             cursor.execute(insert_candidate_user)
             DataBaseManager.connection.commit()
             new_candidate_user = create_person(candidate)
             return new_candidate_user
     except TypeError as e:
         return e
-
-

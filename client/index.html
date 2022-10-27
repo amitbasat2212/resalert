@@ -194,7 +194,7 @@
                 <button
                   data-id="{{id}}"
                   type="button"
-                  class="btn badge-danger btn-sm btn-rounded rounded-pill d-inline close-position"
+                  class="btn badge badge-danger btn-sm rounded-pill d-inline close-position"
                 >
                   Close position
                 </button>
@@ -214,7 +214,6 @@
           >{{name}}</a></li>
       {{/each}}
     </script>
-
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -238,8 +237,16 @@
         <hr class="sidebar-divider my-0" />
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item" id="toDashboard">
-          <a class="nav-link">
+        <li class="nav-item">
+          <a
+            id="toDashboard"
+            class="nav-link collapsed"
+            href="#"
+            data-toggle="collapse"
+            data-target="#collapseTwo"
+            aria-expanded="true"
+            aria-controls="collapseTwo"
+          >
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a
           >
@@ -363,10 +370,7 @@
                     class="mr-2 d-none d-lg-inline text-gray-600 small"
                     >Username</span
                   >
-                  <img
-                    class="img-profile rounded-circle"
-                    src="client/CyberArk_logo.png"
-                  />
+                  <img class="img-profile" src="client/ca.png" />
                 </a>
 
                 <!-- Dropdown - User Information -->

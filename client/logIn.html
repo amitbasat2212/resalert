@@ -21,14 +21,14 @@
         <hr />
         <div class="row">
           <div class="col-md-5">
-            <form role="form" method="post" action="register.php">
+            <form role="form" method="post" action="/register">
               <fieldset>
                 <p class="text-uppercase pull-center">SIGN UP :</p>
                 <div class="form-group">
                   <input
                     type="text"
-                    name="first name"
-                    id="first name"
+                    name="fname"
+                    id="fname"
                     class="form-control input-lg"
                     placeholder="first name"
                   />
@@ -37,8 +37,8 @@
                 <div class="form-group">
                   <input
                     type="text"
-                    name="last name"
-                    id="last name"
+                    name="lname"
+                    id="lname"
                     class="form-control input-lg"
                     placeholder="last name"
                   />
@@ -53,22 +53,27 @@
                     placeholder="Email Address"
                   />
                 </div>
-                <div class="dropdown">
-                  <button
-                    class="btn btn-secondary dropdown-toggle"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Gender
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">M</a></li>
-                    <li><a class="dropdown-item" href="#">F</a></li>
-                  </ul>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    name="cv"
+                    id="cv"
+                    class="form-control input-lg"
+                    placeholder="CV path"
+                  />
                 </div>
 
-                <div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    name="gender"
+                    id="gender"
+                    class="form-control input-lg"
+                    placeholder="gender"
+                  />
+                </div>
+
+                <div class="form-group">
                   <input
                     type="submit"
                     class="btn btn-lg btn-primary"

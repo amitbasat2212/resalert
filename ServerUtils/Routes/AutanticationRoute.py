@@ -1,14 +1,21 @@
 from fastapi import APIRouter, Request, Form
 
 from fastapi.responses import FileResponse
-
+from ServerUtils.TypesOfObject.Candidate import Candidate
+from ServerUtils.queries import CandidateQueries
 
 router = APIRouter()
 
 
-@router.post('/login')
-async def login(username: str = Form(), password: str = Form()):
-    return FileResponse('./client/index.html')
+@router.post('/register')
+async def login(fname: str = Form(), lname: str = Form(), email: str = Form(), cv: str = Form(), gender: str = Form(), ):
+    candidate = Candidate(fname, lname, email, cv, gender)
+    CandidateQueries.add_candidate_user(candidate)
+
+
+@router.get('/login')
+async def login():
+    return FileResponse('./client/logIn.html')
 
 
 @router.get('/logout')
