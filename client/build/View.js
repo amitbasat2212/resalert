@@ -12,11 +12,10 @@ class Renderer {
     }
     renderStatics() {
         this.emptyAll();
-        const inject = `<canvas id="pie-chart" width="800" height="450"></canvas>
-        <canvas id="bar-chart" width="800" height="450"></canvas>
-    
+        const inject = `<canvas id="pie-chart" width="1200" height="380"></canvas>
+        <canvas id="bar-chart" width="1200" height="380"></canvas>    
     <script>var exports = {};</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
+    
    `;
         $("#table-container").append(inject);
     }
