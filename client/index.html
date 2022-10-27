@@ -45,108 +45,129 @@
 
   <body id="page-top">
     <script id="candidates-template" type="text/x-handlebars-template">
-      <thead class="text-primary bg-light">
-        <tr>
-          <th>Name</th>
-          <th>Position</th>
-          <th>Status</th>
-          <th>Stage</th>
-          <th>Gender</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each candidate}}
+      <table class="align-middle mb-0 bg-white">
+        <thead class="text-primary bg-light">
           <tr>
-            <td>
-              <div class="mail-name">
-                <p class="name fw-bold mb-1">{{first_name}} {{last_name}}</p>
-                <p class="mail text-muted mb-0">{{mail}}</p>
-              </div>
-            </td>
-            <td class="job">
-              {{job}}
-            </td>
-            <td class="status">
-              {{status}}
-            </td>
-            <td>
-              {{#ifEquals stage "Pending"}}
-                <span
-                  class="stage badge badge-warning rounded-pill d-inline"
-                >{{stage}}</span>
-              {{/ifEquals}}
-
-              {{#ifEquals stage "On process"}}
-                <span
-                  class="stage badge badge-primary rounded-pill d-inline"
-                >{{stage}}</span>
-              {{/ifEquals}}
-
-              {{#ifEquals stage "Rejected"}}
-                <span
-                  class="stage badge badge-danger rounded-pill d-inline"
-                >{{stage}}</span>
-              {{/ifEquals}}
-
-              {{#ifEquals stage "Hired"}}
-                <span
-                  class="stage badge badge-success rounded-pill d-inline"
-                >{{stage}}</span>
-              {{/ifEquals}}
-            </td>
-            <td class="gender">
-              {{Gender}}
-            </td>
-
-            <td>
-              <button
-                type="button"
-                class="update-btn btn btn-link btn-sm btn-rounded"
-                data-job="{{job_id}}"
-                data-cand="{{mail}}"
-              >
-                Update
-              </button>
-            </td>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Status</th>
+            <th>Stage</th>
+            <th>Gender</th>
+            <th>Actions</th>
           </tr>
-        {{/each}}
-      </tbody>
+        </thead>
+        <tbody>
+          {{#each candidate}}
+            <tr>
+              <td>
+                <div class="mail-name">
+                  <p class="name fw-bold mb-1">{{first_name}} {{last_name}}</p>
+                  <p class="mail text-muted mb-0">{{mail}}</p>
+                </div>
+              </td>
+              <td class="job">
+                {{job}}
+              </td>
+              <td class="status">
+                {{status}}
+              </td>
+              <td>
+                {{#ifEquals stage "Pending"}}
+                  <span
+                    class="stage badge badge-warning rounded-pill d-inline"
+                  >{{stage}}</span>
+                {{/ifEquals}}
+
+                {{#ifEquals stage "On process"}}
+                  <span
+                    class="stage badge badge-primary rounded-pill d-inline"
+                  >{{stage}}</span>
+                {{/ifEquals}}
+
+                {{#ifEquals stage "Rejected"}}
+                  <span
+                    class="stage badge badge-danger rounded-pill d-inline"
+                  >{{stage}}</span>
+                {{/ifEquals}}
+
+                {{#ifEquals stage "Hired"}}
+                  <span
+                    class="stage badge badge-success rounded-pill d-inline"
+                  >{{stage}}</span>
+                {{/ifEquals}}
+              </td>
+              <td class="gender">
+                {{Gender}}
+              </td>
+
+              <td>
+                <button
+                  type="button"
+                  class="update-btn btn btn-link btn-sm btn-rounded"
+                  data-job="{{job_id}}"
+                  data-cand="{{mail}}"
+                >
+                  Update
+                </button>
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
     </script>
 
     <script id="jobs-template" type="text/x-handlebars-template">
-      <thead class="text-primary bg-light">
-        <tr>
-          <th>Id</th>
-          <th>Position name</th>
-          <th>Department</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each job}}
+        
+      <form>
+        <div class="row add-new-job-table">
+          <div class="col">
+            <input type="text" class="form-control form-job-id" placeholder="Job id">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control form-position-name" placeholder="Position name">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control form-department" placeholder="Department">
+          </div>
+          <div class="col">
+            <button type="submit" class="btn btn-primary mb-2 add-new-job">Add new job</button>
+          </div>
+        </div>
+      </form>
+      <table class="align-middle mb-0 bg-white">
+        <thead class="text-primary bg-light">
           <tr>
-            <td class="job-id">
-              {{id}}
-            </td>
-            <td class="job-name">
-              {{name}}
-            </td>
-            <td class="job-dep">
-              {{dep_name}}
-            </td>
-            <td>
-              <button
-                data-id="{{id}}"
-                type="button"
-                class="btn btn-link btn-sm btn-rounded close-position"
-              >
-                Close position
-              </button>
-            </td>
+            <th>Id</th>
+            <th>Position name</th>
+            <th>Department</th>
+            <th>Actions</th>
           </tr>
-        {{/each}}
-      </tbody>
+        </thead>
+        <tbody>
+          {{#each job}}
+            <tr>
+              <td class="job-id">
+                {{id}}
+              </td>
+              <td class="job-name">
+                {{name}}
+              </td>
+              <td class="job-dep">
+                {{dep_name}}
+              </td>
+              <td>
+                <button
+                  data-id="{{id}}"
+                  type="button"
+                  class="btn btn-link btn-sm btn-rounded close-position"
+                >
+                  Close position
+                </button>
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
     </script>
 
     <script id="jobsDropdown-template" type="text/x-handlebars-template">
@@ -468,11 +489,8 @@
                 </h6>
               </div>
               <div class="card-body">
-                <div class="table-responsive text-center">
-                  <table
-                    id="table-container"
-                    class="align-middle mb-0 bg-white"
-                  ></table>
+                <div class="table-responsive text-center" id="table-container">
+                 
                 </div>
               </div>
             </div>

@@ -53,15 +53,15 @@ $("body").on("click", ".dropdown-item", function () {
         console.log("4");
     }
 });
-$("body").on('click', ".update-btn", function () {
+$("body").on("click", ".update-btn", function () {
     return __awaiter(this, void 0, void 0, function* () {
-        const jobId = $(this).data('job');
-        const candidateId = $(this).data('cand');
+        const jobId = $(this).data("job");
+        const candidateId = $(this).data("cand");
         yield controller.Model.updateStatus(jobId, candidateId);
         controller.loadCandidates();
     });
 });
-$('#pos-btn').on('click', function () {
+$("#pos-btn").on("click", function () {
     return __awaiter(this, void 0, void 0, function* () {
         const jobs = yield controller.Model.getJobs();
         controller.renderer.renderJobsDropDown(jobs);
@@ -76,28 +76,42 @@ $("#clear-filters-btn").on("click", function () {
     controller.filters.empty();
     controller.loadCandidates();
 });
-$('#toJobs').on('click', function () {
-    $('#table-name').text('Jobs');
+$("#toJobs").on("click", function () {
+    $("#table-name").text("Jobs");
     controller.loadJobsTable();
-    $('#search-btn').prop('disabled', true);
-    $('#clear-filters-btn').prop('disabled', true);
+    $("#search-btn").prop("disabled", true);
+    $("#clear-filters-btn").prop("disabled", true);
 });
-$('#toCandidates').on('click', function () {
+$("#toCandidates").on("click", function () {
     controller.filters.empty();
-    $('#table-name').text('Candidates');
-    $('#search-btn').prop('disabled', false);
-    $('#clear-filters-btn').prop('disabled', false);
+    $("#table-name").text("Candidates");
+    $("#search-btn").prop("disabled", false);
+    $("#clear-filters-btn").prop("disabled", false);
     controller.loadCandidates();
 });
-$('#toDashboard').on('click', function () {
+$("#toDashboard").on("click", function () {
     controller.filters.empty();
-    $('#table-name').text('Recruiting Statistics');
-    $('#search-btn').prop('disabled', true);
-    $('#clear-filters-btn').prop('disabled', true);
+    $("#table-name").text("Recruiting Statistics");
+    $("#search-btn").prop("disabled", true);
+    $("#clear-filters-btn").prop("disabled", true);
     controller.loadStatistics();
 });
 $("#table-container").on("click", ".close-position", function () {
     const id = $(this).data("id");
     controller.Model.deleteJob(id);
+    controller.loadJobsTable();
+});
+$("#table-container").on("click", ".add-new-job", function () {
+    const id = $(this).closest(".add-new-job-table").find(".form-job-id").val();
+    const position = $(this)
+        .closest(".add-new-job-table")
+        .find(".form-position-name")
+        .val();
+    const department = $(this)
+        .closest(".add-new-job-table")
+        .find(".form-department")
+        .val();
+    controller.Model.addNewJob(Number(id), String(position), String(department));
+    console.log(department);
     controller.loadJobsTable();
 });

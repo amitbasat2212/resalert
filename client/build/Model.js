@@ -34,11 +34,16 @@ class Model {
     updateStatus(jobId, candidateId) {
         $.ajax({
             url: `/personjobs/status?job_id=${jobId}&candidate_id=${candidateId}`,
-            type: 'PUT'
+            type: "PUT",
         });
     }
-    addNewJob(newJob) {
+    addNewJob(id, name, dep_name) {
         return __awaiter(this, void 0, void 0, function* () {
+            const newJob = {
+                oj_id: id,
+                job_name: name,
+                department_name: dep_name,
+            };
             return yield $.post(`/jobs`, JSON.stringify(newJob));
         });
     }
