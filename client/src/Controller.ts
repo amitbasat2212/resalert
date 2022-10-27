@@ -49,8 +49,46 @@ $("body").on("click", ".dropdown-item", function () {
 $("body").on('click', ".update-btn", async function(){
     const jobId = $(this).data('job')
     const candidateId = $(this).data('cand')
+    const currentStage: string = $(this).closest('.candidate').find('.stage').text()
+  const candidateName: string = $(this).closest('.candidate').find('.name').text()
+
+  if (currentStage === 'Rejected' || currentStage === 'Hired' ) {
+    return;
+  }
+  
     await controller.Model.updateStatus(jobId, candidateId)
     controller.loadCandidates()
+})
+
+$("body").on('click', ".hire-btn", async function(){
+  const jobId = $(this).data('job')
+  const candidateId = $(this).data('cand')
+  const currentStage: string = $(this).closest('.candidate').find('.stage').text()
+  const candidateName: string = $(this).closest('.candidate').find('.name').text()
+
+  if (currentStage === 'Rejected' || currentStage === 'Hired' ) {
+    return;
+  }
+  alert(`You are going to hire ${candidateName}.\n
+  Be aware, this process cannot be change!`)  
+  
+  await controller.Model.updateStage(jobId, candidateId, 'Hired')
+  controller.loadCandidates()
+})
+
+$("body").on('click', ".reject-btn", async function(){
+  const jobId = $(this).data('job')
+  const candidateId = $(this).data('cand')
+  const currentStage: string = $(this).closest('.candidate').find('.stage').text()
+  const candidateName: string = $(this).closest('.candidate').find('.name').text()
+
+  if (currentStage === 'Rejected' || currentStage === 'Hired' ) {
+    return;
+  }
+  alert(`You are going to postpone the hiring process of ${candidateName}.\n
+  Be aware, this process cannot be change!`)
+  await controller.Model.updateStage(jobId, candidateId, 'Rejected')
+  controller.loadCandidates()
 })
 
 $('#pos-btn').on('click', async function(){

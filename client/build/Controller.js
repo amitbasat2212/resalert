@@ -57,7 +57,42 @@ $("body").on('click', ".update-btn", function () {
     return __awaiter(this, void 0, void 0, function* () {
         const jobId = $(this).data('job');
         const candidateId = $(this).data('cand');
+        const currentStage = $(this).closest('.candidate').find('.stage').text();
+        const candidateName = $(this).closest('.candidate').find('.name').text();
+        if (currentStage === 'Rejected' || currentStage === 'Hired') {
+            return;
+        }
         yield controller.Model.updateStatus(jobId, candidateId);
+        controller.loadCandidates();
+    });
+});
+$("body").on('click', ".hire-btn", function () {
+    return __awaiter(this, void 0, void 0, function* () {
+        const jobId = $(this).data('job');
+        const candidateId = $(this).data('cand');
+        const currentStage = $(this).closest('.candidate').find('.stage').text();
+        const candidateName = $(this).closest('.candidate').find('.name').text();
+        if (currentStage === 'Rejected' || currentStage === 'Hired') {
+            return;
+        }
+        alert(`You are going to hire ${candidateName}.\n
+  Be aware, this process cannot be change!`);
+        yield controller.Model.updateStage(jobId, candidateId, 'Hired');
+        controller.loadCandidates();
+    });
+});
+$("body").on('click', ".reject-btn", function () {
+    return __awaiter(this, void 0, void 0, function* () {
+        const jobId = $(this).data('job');
+        const candidateId = $(this).data('cand');
+        const currentStage = $(this).closest('.candidate').find('.stage').text();
+        const candidateName = $(this).closest('.candidate').find('.name').text();
+        if (currentStage === 'Rejected' || currentStage === 'Hired') {
+            return;
+        }
+        alert(`You are going to postpone the hiring process of ${candidateName}.\n
+  Be aware, this process cannot be change!`);
+        yield controller.Model.updateStage(jobId, candidateId, 'Rejected');
         controller.loadCandidates();
     });
 });

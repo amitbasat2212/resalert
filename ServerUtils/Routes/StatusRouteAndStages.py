@@ -19,7 +19,7 @@ async def update_the_status_of_candidate_job(candidate_id, job_id):
 
    
 @router.put('/stages')
-async def update_the_stage_of_candidate_job(candidate_id, job_id, stages_name):
+async def update_the_stage_of_candidate_job(candidate_id, job_id, stage):
     update_stage = StageQueries.update_the_final_stage(
-        candidate_id, job_id, stages_name)
+        candidate_id, job_id, stage)
     return update_stage

@@ -56,38 +56,38 @@ def find_job_by_id(job_id):
         return e
 
 
-def delete_from_tables(job_id,table,param):
+def delete_from_tables(job_id, table, param):
     try:
-        with DataBaseManager.connection.cursor() as cursor: 
-            if_row_excist = find_job_by_id(job_id)           
-            if(if_row_excist):
-                delete_candidate_of_jobs= f"Delete from {table} where {param}='{job_id}';"
-                cursor.execute(delete_candidate_of_jobs)               
+        with DataBaseManager.connection.cursor() as cursor:
+            if_row_excist = find_job_by_id(job_id)
+            if (if_row_excist):
+                delete_candidate_of_jobs = f"Delete from {table} where {param}='{job_id}';"
+                cursor.execute(delete_candidate_of_jobs)
                 DataBaseManager.connection.commit()
                 return {"succes": 200}
             return {}
 
     except TypeError as e:
-        return e;
+        return e
 
 
 def delete_from_person_jobs(job_id):
-    delete_from_tables(job_id,"person_jobs","job_id");
-
-def delete_from_open_jobs(job_id): 
-    delete_from_tables(job_id,"open_jobs","oj_id")
+    delete_from_tables(job_id, "person_jobs", "job_id")
 
 
-def delete_job(job_id): 
+def delete_from_open_jobs(job_id):
+    delete_from_tables(job_id, "open_jobs", "oj_id")
+
+
+def delete_job(job_id):
     try:
-        with DataBaseManager.connection.cursor() as cursor: 
-            if_row_excist = find_job_by_id(job_id)           
-            if(if_row_excist):                
+        with DataBaseManager.connection.cursor() as cursor:
+            if_row_excist = find_job_by_id(job_id)
+            if (if_row_excist):
                 delete_from_person_jobs(job_id)
                 delete_from_open_jobs(job_id)
-                return {"succes":200}            
+                return {"succes": 200}
             return {}
 
-   
     except TypeError as e:
-        return e;
+        return e

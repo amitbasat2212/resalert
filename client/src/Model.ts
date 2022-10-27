@@ -13,7 +13,7 @@ class Model {
     gender: string
   ): Promise<Candidate[]> {
     Model.currentCandidates = await $.get(
-      `/candidates?job=${jobName}&status=${status}&stage=${stage}&gender=${gender}`
+      `/candidates?job_name=${jobName}&status=${status}&stage=${stage}&gender=${gender}`
     );
     return Model.currentCandidates;
   }
@@ -34,6 +34,14 @@ class Model {
       });
       
    }
+
+   updateStage(jobId:string, candidateId:string, stage: string){
+    $.ajax({
+       url: `/personjobs/stages?job_id=${jobId}&candidate_id=${candidateId}&stage=${stage}`,
+       type: 'PUT'
+       });
+       
+    }
    async addNewJob(newJob: Job ): Promise<Job>{
       return await $.post(`/jobs`,JSON.stringify(newJob))
    }

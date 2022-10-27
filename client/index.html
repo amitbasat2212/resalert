@@ -52,12 +52,14 @@
           <th>Status</th>
           <th>Stage</th>
           <th>Gender</th>
-          <th>Actions</th>
+          <th>StepUp</th>
+          <th class="text-danger">decision</th>
+
         </tr>
       </thead>
       <tbody>
         {{#each candidate}}
-          <tr>
+          <tr class="candidate">
             <td>
               <div class="mail-name">
                 <p class="name fw-bold mb-1">{{first_name}} {{last_name}}</p>
@@ -102,12 +104,32 @@
             <td>
               <button
                 type="button"
-                class="update-btn btn btn-link btn-sm btn-rounded"
+                class="update-btn btn btn-sm btn-rounded badge badge-secondary rounded-pill d-inline"
                 data-job="{{job_id}}"
                 data-cand="{{mail}}"
               >
                 Update
               </button>
+            </td>
+            <td>
+              <div class="decision">
+                <button
+                  type="button"
+                  class="hire-btn btn btn-sm btn-rounded badge badge-success rounded-pill d-inline"
+                  data-job="{{job_id}}"
+                  data-cand="{{mail}}"
+                >
+                  V
+                </button>
+                <button
+                  type="button"
+                  class="reject-btn btn btn-sm btn-rounded badge badge-danger rounded-pill d-inline"
+                  data-job="{{job_id}}"
+                  data-cand="{{mail}}"
+                >
+                  X
+                </button>
+              </div>
             </td>
           </tr>
         {{/each}}
@@ -126,20 +148,20 @@
       <tbody>
         {{#each job}}
           <tr>
-            <td class="job-id">
+            <td class="px-4 job-id">
               {{id}}
             </td>
-            <td class="job-name">
+            <td class="px-4 job-name">
               {{name}}
             </td>
-            <td class="job-dep">
+            <td class="px-4 job-dep">
               {{dep_name}}
             </td>
-            <td>
+            <td class="px-4">
               <button
                 data-id="{{id}}"
                 type="button"
-                class="btn btn-link btn-sm btn-rounded close-position"
+                class="btn badge-danger btn-sm btn-rounded rounded-pill d-inline close-position"
               >
                 Close position
               </button>
